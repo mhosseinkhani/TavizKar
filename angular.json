@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "claim-reporter-app": {
+    "carchar-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/claim-reporter-app",
+            "outputPath": "dist/carchar-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -54,18 +54,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "claim-reporter-app:build"
+            "browserTarget": "carchar-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "claim-reporter-app:build:production"
+              "browserTarget": "carchar-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "claim-reporter-app:build"
+            "browserTarget": "carchar-app:build"
           }
         },
         "test": {
@@ -100,7 +100,7 @@
         }
       }
     },
-    "claim-reporter-app-e2e": {
+    "carchar-app-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -108,7 +108,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "claim-reporter-app:serve"
+            "devServerTarget": "carchar-app:serve"
           }
         },
         "lint": {
@@ -123,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "claim-reporter-app"
+  "defaultProject": "carchar-app"
 }

@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {Claim} from "../../shared/model/Claim";
 import {ClaimCacheService} from "../../shared/claim-cache.service";
-import {CarInfoService} from "../../shared/car-info.service";
-import {DictionaryItem} from "../../shared/model/DictionaryItem";
-import {SwPush} from "@angular/service-worker";
-import {PushNotificationService} from "../../shared/push-notification.service";
-import {CarPredicatorService} from "../../shared/car-predicator.service";
-import {ClaimService} from "../../shared/claim.service";
+import {CarInfoService} from '../../shared/car-info.service';
+import {DictionaryItem} from '../../shared/model/DictionaryItem';
+import {SwPush} from '@angular/service-worker';
+import {PushNotificationService} from '../../shared/push-notification.service';
+import {CarPredicatorService} from '../../shared/car-predicator.service';
+import {ClaimService} from '../../shared/claim.service';
 
 @Component({
   selector: 'app-claim-create',
@@ -55,7 +55,7 @@ export class ClaimCreateComponent implements OnInit {
     [].forEach.call(event.target.files, (file) => {
       let reader = new FileReader();
 
-      reader.addEventListener("load", function () {
+      reader.addEventListener('load', function () {
         photos.push({
           filename: file.name,
           content: this.result

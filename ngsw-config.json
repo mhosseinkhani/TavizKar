@@ -26,9 +26,9 @@
   ],
   "dataGroups": [
     {
-      "name": "car-info-api",
+      "name": "carchar-api",
       "urls": [
-        "https://www.carqueryapi.com/api/0.3/"
+        "http://localhost:61550/api/"
       ],
       "cacheConfig": {
         "strategy": "freshness",

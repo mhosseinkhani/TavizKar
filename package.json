@@ -1,10 +1,10 @@
 {
-  "name": "claim-reporter-app",
+  "name": "carchar-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4203",
-    "build": "ng build --prod && cd dist/claim-reporter-app && http-server -c-1 .",
+    "build": "ng build --prod && cd dist/carchar-app && http-server -c-1 .",
     "buildProd": "ng build --prod",
     "startMobile": "ng serve --host 0.0.0.0 --disable-host-check",
     "test": "ng test",
@@ -29,9 +29,9 @@
     "core-js": "^2.5.4",
     "http-server": "^0.10.0",
     "moment": "^2.18.1",
+    "ng-http-loader": "^2.0.0",
     "ng2-semantic-ui": "^0.9.7",
     "nodemon": "^1.11.0",
-    "ng-http-loader": "^2.0.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },
