@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-menu',
@@ -9,11 +8,11 @@ import {environment} from "../../../environments/environment";
 export class MenuComponent implements OnInit {
 
   actualVersion: string;
-
+clientQty=1250;
   constructor() {
   }
 
   ngOnInit() {
-    this.actualVersion = environment.version;
+    this.actualVersion ='اتومکانیک اکبر'; //environment.version;
   }
 }

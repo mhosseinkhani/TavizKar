@@ -10,7 +10,9 @@ export class CarInfoService {
   }
 
   getMakes(): Observable<any> {
-    return this.http.jsonp(environment.car_info_api_url + 'cmd=getMakes', 'callback');
+    // return this.http.jsonp(environment.car_info_api_url + 'cmd=getMakes', 'callback');
+    return this.http.get('http://localhost:61550/api/service/oils');
+
   }
 
   getModels(make: string): Observable<any> {

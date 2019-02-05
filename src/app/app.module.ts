@@ -9,7 +9,6 @@ import {SuiModule} from 'ng2-semantic-ui';
 
 import {AppRoutingModule} from "./routing.module";
 import {AppComponent} from './app.component';
-import {ClaimCreateComponent} from './components/claim-create/claim-create.component';
 import {MenuComponent} from './components/menu/menu.component';
 import {ClaimListComponent} from './components/claim-list/claim-list.component';
 import {FooterComponent} from './components/footer/footer.component';
@@ -20,11 +19,12 @@ import {ClaimCacheService} from "./shared/claim-cache.service";
 import {ClaimService} from "./shared/claim.service";
 import {HttpInterceptorService} from "./shared/http-interceptor.service";
 import {NgHttpLoaderModule} from "ng-http-loader";
+import { ServiceCreateComponent } from './components/service-create/service-create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClaimCreateComponent,
+    ServiceCreateComponent,
     MenuComponent,
     ClaimListComponent,
     FooterComponent

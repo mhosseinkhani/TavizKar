@@ -1,9 +1,33 @@
-<nav class="ui fixed inverted menu app-shell-menu">
-  <a class="header item" href="/">
-    <h1>Claim Register {{ actualVersion }} </h1>
-  </a>
+<div class="ui fixed inverted menu">
+  <div class="ui container ">
+    <a href="#" class="header item">
+      <img class="logo" src="https://semantic-ui.com/images/avatar2/small/elyse.png">
+      اتو سرویس ماهان </a>
+    <a class="item">{{clientQty | number:0}}
+      <label class="client-qty">مشتری</label>
+    </a>
+    <div class="ui simple dropdown item">
+        <i class="cog icon"></i> <i class="dropdown icon"></i>
+      <div class="menu">
+        <a class="item" href="#">تنظیمات</a>
+        <div class="divider"></div>
+        <div class="header">خروج</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <a class="header item" href="/claims">
-    My claims
-  </a>
-</nav>
+
+
+<!-- <nav class="ui fixed inverted menu app-shell-menu">
+    <div class="ui horizontal list">
+        <div class="item">
+          <img class="ui mini circular image" src="https://semantic-ui.com/images/avatar2/small/elyse.png">
+          <div class="content">
+            <div class="ui sub header">Molly</div>
+            Coordinator
+          </div>
+        </div>
+      </div>
+ 
+</nav> -->

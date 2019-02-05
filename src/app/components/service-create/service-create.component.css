@@ -1,0 +1,74 @@
+.main-form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.photo-preview-container {
+  width: 20%;
+  margin: 10px;
+}
+
+.photo-preview {
+  width: 100%;
+}
+
+@media screen and (max-width: 777px) {
+  .main-form {
+    width: 98%;
+  }
+}
+
+.notification-button-section {
+  margin-top: 10px;
+}
+
+.send-notification-button {
+  margin-top: 10px;
+}
+
+.button-conent .ui.grid.service-element .column {
+  text-align: center;
+  font-weight: bold;
+  padding: 30px 0;
+}
+
+input[type="text"] {
+  font-family: iransans !important;
+  width: 100%;
+}
+
+.ui.icon.input.field {
+  width: 100%;
+}
+
+sui-select.selection.field.ui.dropdown.search {
+  width: 100%;
+}
+
+.ui.grid.service-element.field {
+  padding: 10px 0 0 0;
+}
+
+.five.wide.column {
+  margin: 1%;
+}
+
+.column .icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  font-size: 2em;
+}
+
+
+.dark {
+  color: #00000080 !important;
+  background-color: white !important;
+}
+
+.container.box-service {
+  padding: 8px;
+}
+.text-center {
+  text-align: center;
+}

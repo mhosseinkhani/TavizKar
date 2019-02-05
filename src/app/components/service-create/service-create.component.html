@@ -1,0 +1,176 @@
+<div class="ui tag labels">
+
+  <a class="ui label teal">
+    سرویس جدید </a>
+</div>
+<div class="container box-service">
+  <div class="ui active dimmer" *ngIf="isLoading">
+    <div class="ui text loader">لطفا شکیبا باشید ...</div>
+  </div>
+
+  <div class="button-conent">
+    <form class="ui form">
+      <div class="input-box">
+        <div class="ui icon input field">
+          <input type="text" placeholder="شماره موبایل مشتری">
+          <i class="mobile alternate icon"></i>
+        </div>
+        <div class="ui icon input field">
+          <input type="text" placeholder="کیلومتر">
+          <i class="tachometer alternate icon"></i>
+        </div>
+
+        <sui-select class="selection field" [(ngModel)]="claim.carMark" [ngModelOptions]="{standalone: true}"
+          (ngModelChange)="cacheForm()" [options]="carMakes" labelField="name" placeholder="نوع روغن" [isSearchable]="true"
+          #carModelSelect>
+          <sui-select-option *ngFor="let option of carModelSelect.filteredOptions" [value]="option"></sui-select-option>
+        </sui-select>
+        <div class="ui icon input field">
+          <input type="text" placeholder="کارکرد">
+          <i class="tachometer alternate icon"></i>
+        </div>
+      </div>
+
+      <div class="ui grid service-element field">
+        <!-- <div class="red five wide  column">روغن موتور</div> -->
+        <div class="orange five wide column" (click)="selectedFilter.OilFilter =!selectedFilter.OilFilter" [ngClass]="{'dark' :!selectedFilter.OilFilter}">
+          <i class="check icon" *ngIf="selectedFilter.OilFilter"></i>روعن فیلتر
+        </div>
+        <div class="yellow five wide column" (click)="selectedFilter.AirFilter =!selectedFilter.AirFilter" [ngClass]="{'dark' :!selectedFilter.AirFilter}"><i
+            class="check icon" *ngIf="selectedFilter.AirFilter"></i>فیلتر هوا</div>
+        <div class="olive five wide column" (click)="selectedFilter.GearboxOil=!selectedFilter.GearboxOil" [ngClass]="{'dark' :!selectedFilter.GearboxOil}"><i
+            class="check icon" *ngIf="selectedFilter.GearboxOil"></i>روعن گیربکس</div>
+        <div class="brown five wide column" (click)="selectedFilter.BreakOil=!selectedFilter.BreakOil" [ngClass]="{'dark' :!selectedFilter.BreakOil}"><i
+            class="check icon" *ngIf="selectedFilter.BreakOil"></i>روعن ترمز</div>
+        <div class="teal five wide column" (click)="selectedFilter.SteeringOil=!selectedFilter.SteeringOil" [ngClass]="{'dark' :!selectedFilter.SteeringOil}"><i
+            class="check icon" *ngIf="selectedFilter.SteeringOil"></i>روغن هیدرولیک</div>
+        <div class="blue five wide column" (click)="selectedFilter.BattryWater=!selectedFilter.BattryWater" [ngClass]="{'dark' :!selectedFilter.BattryWater}"><i
+            class="check icon" *ngIf="selectedFilter.BattryWater"></i>آب باطری</div>
+        <div class="violet five wide column" (click)="selectedFilter.Grease=!selectedFilter.Grease" [ngClass]="{'dark' :!selectedFilter.Grease}"><i
+            class="check icon" *ngIf="selectedFilter.Grease"></i>گریس</div>
+        <div class="purple five wide column" (click)="selectedFilter.WindSet=!selectedFilter.WindSet" [ngClass]="{'dark' :!selectedFilter.WindSet}"><i
+            class="check icon" *ngIf="selectedFilter.WindSet"></i>فیلتر هوا</div>
+        <div class="pink five wide column" (click)="selectedFilter.CabinFilter=!selectedFilter.CabinFilter" [ngClass]="{'dark' :!selectedFilter.CabinFilter}"><i
+            class="check icon" *ngIf="selectedFilter.CabinFilter"></i>فیلتر کابین</div>
+      </div>
+      <div class="text-center">
+        <button class="ui labeled green big icon button field">
+          <i class="plus  icon"></i>
+          ثبت سرویس
+        </button></div>
+    </form>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="ui card main-form">
+  <div class="content">
+    <div class="header">Register new claim</div>
+  </div>
+  <div class="content">
+    <div class="ui large form equal width stackable grid">
+
+       <div class="five column row">
+
+        <div class="column field">
+          <label for="carModel">Car mark</label>
+          <sui-select class="selection" [(ngModel)]="claim.carMark" (ngModelChange)="cacheForm()" [options]="carMakes"
+            labelField="name" placeholder="Car mark" [isSearchable]="true" #carModelSelect>
+            <sui-select-option *ngFor="let option of carModelSelect.filteredOptions" [value]="option"></sui-select-option>
+          </sui-select>
+        </div>
+
+        <div class="column field">
+          <label for="carModel">Car model</label>
+          <input type="text" id="carModel" name="carModel" placeholder="Car model" [(ngModel)]="claim.carModel"
+            (change)="cacheForm()" />
+        </div>
+
+        <div class="column field">
+          <label for="carNumber">Car registration number</label>
+          <input type="text" id="carNumber" name="carNumber" placeholder="Car registration number" [(ngModel)]="claim.carNumber"
+            (change)="cacheForm()" />
+        </div>
+
+      </div>
+
+       <div class="row">
+        <div class="column field">
+          <button class="ui primary right floated button" (click)="fireImageUpload()">
+            <i class="icon camera"></i>
+            Auto detect by photo
+          </button>
+        </div>
+        <div style="display: none;">
+          <input type="file" accept="image/*" id="auto-detect-file-upload" (change)="detectByPhoto()" />
+        </div>
+      </div>
+
+       <div class="five column row">
+        <div class="column field">
+          <label for="firstName">Your first name</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Your first name" [(ngModel)]="claim.reporter.firstName"
+            (change)="cacheForm()" />
+        </div>
+
+        <div class="column field">
+          <label for="lastName">Your last name</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Your last name" [(ngModel)]="claim.reporter.lastName"
+            (change)="cacheForm()" />
+        </div>
+
+        <div class="column field">
+          <label for="birthdate">Your birthdate</label>
+          <input type="date" id="birthdate" name="birthdate" placeholder="Your birthdate" [(ngModel)]="claim.reporter.birthdate"
+            (change)="cacheForm()" />
+        </div>
+      </div>
+
+      <div class="ui divider"></div>
+
+       <div class="one column row">
+        <div class="column field">
+          <label>Upload your photos</label>
+          <input type="file" multiple accept="image/*" (change)="cachePhoto($event)" />
+        </div>
+      </div>
+
+      <div class="row preview">
+        <div *ngFor="let photo of claim.photos" class="photo-preview-container">
+          <img src="{{ photo.content }}" alt="{{ photo.filename }}" class="photo-preview" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="extra content">
+    <div class="row">
+      <button class="ui negative button" (click)="clearCache()">Clear cache</button>
+      <button class="ui positive right floated button" (click)="save()">Save claim</button>
+    </div>
+    <div class="row notification-button-section">
+      <button class="ui button" (click)="subscribeToNotifications()">Enable notifications</button>
+      <button class="ui button send-notification-button" (click)="sendNotificationToAll()">Send notification</button>
+    </div>
+  </div>
+</div> -->

@@ -1,0 +1,50 @@
+body {
+    font-family: iransans ;
+    background-image: linear-gradient(to top, #232323 0%, #565656 99%, #292929 100%);
+}
+.rtl{
+    direction: rtl;
+}
+.rtl input[type="text"] {
+    text-align: right;
+}
+.ui.inverted.menu {
+    background: #327cc5;
+}a {
+    font-family: iransans;
+}
+
+.item label.client-qty {
+    display: flex;
+    position: absolute;
+    bottom: 5px;
+    font-size: x-small;
+    margin: 0 auto;
+    right: 24px;
+}
+
+ 
+
+a.item:nth-child(2) {
+    font-weight: bolder !important;
+    color: #f2711c !important;
+    font-size: larger;
+    text-align: center;
+}
+
+.ui.menu .item>img:not(.ui) {
+    margin: 0em 0px 0.2px 5px;
+}
+ 
+
+.ui.menu .item {
+    padding: 8px 15px;
+}
+.menu {
+    font-family: iransans;
+}
+
+.ui.simple.dropdown.item {position: absolute;left: 0;top: 0px;height: 50px;}
+button {
+    font-family: iransans !important;
+}
