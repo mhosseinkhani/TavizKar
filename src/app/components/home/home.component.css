@@ -1,0 +1,13 @@
+.grid a i.fas {
+  font-size: 40px;
+  display: block;
+}
+
+.grid a {
+  text-align: center;
+  margin: 2px;
+}
+
+.grid {
+  padding: 10px !important;
+}

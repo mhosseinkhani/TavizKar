@@ -1,21 +1,21 @@
-import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../environments/environment";
-import {Observable} from "rxjs/index";
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { environment } from "../../environments/environment";
+import { Observable } from "rxjs/index";
 
 @Injectable()
 export class CarInfoService {
-
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   getMakes(): Observable<any> {
     // return this.http.jsonp(environment.car_info_api_url + 'cmd=getMakes', 'callback');
-    return this.http.get('http://localhost:61550/api/service/oils');
-
+    return this.http.get(environment.main_api_url + "/service/oils");
   }
 
   getModels(make: string): Observable<any> {
-    return this.http.jsonp(environment.car_info_api_url + 'cmd=getModels&make=' + make, 'callback');
+    return this.http.jsonp(
+      environment.main_api_url + "cmd=getModels&make=" + make,
+      "callback"
+    );
   }
 }

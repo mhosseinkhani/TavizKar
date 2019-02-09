@@ -1,3 +1,4 @@
+import { CarServiceService } from './shared/CarService.Service';
 import {environment} from '../environments/environment';
 import {BrowserModule} from '@angular/platform-browser';
 import {HTTP_INTERCEPTORS, HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
@@ -10,30 +11,33 @@ import {SuiModule} from 'ng2-semantic-ui';
 import {AppRoutingModule} from "./routing.module";
 import {AppComponent} from './app.component';
 import {MenuComponent} from './components/menu/menu.component';
-import {ClaimListComponent} from './components/claim-list/claim-list.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {CarInfoService} from "./shared/car-info.service";
 import {PushNotificationService} from "./shared/push-notification.service";
 import {CarPredicatorService} from "./shared/car-predicator.service";
 import {ClaimCacheService} from "./shared/claim-cache.service";
-import {ClaimService} from "./shared/claim.service";
-import {HttpInterceptorService} from "./shared/http-interceptor.service";
+ import {HttpInterceptorService} from "./shared/http-interceptor.service";
 import {NgHttpLoaderModule} from "ng-http-loader";
 import { ServiceCreateComponent } from './components/service-create/service-create.component';
+import { ServiceListComponent } from './components/service-list/service-list.component';
+import { HomeComponent } from './components/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     ServiceCreateComponent,
     MenuComponent,
-    ClaimListComponent,
-    FooterComponent
+    ServiceListComponent,
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     HttpClientJsonpModule,
     SuiModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
@@ -43,8 +47,7 @@ import { ServiceCreateComponent } from './components/service-create/service-crea
     CarInfoService,
     PushNotificationService,
     CarPredicatorService,
-    ClaimCacheService,
-    ClaimService,
+     CarServiceService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,

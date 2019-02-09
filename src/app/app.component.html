@@ -1,7 +1,7 @@
 <app-menu></app-menu>
-<div class="main-container">
 
-  <router-outlet></router-outlet>
+<div class="main-container" [@routeAnimations]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
   <spinner [backgroundColor]="'#ff0000'"></spinner>
 </div>
 <app-footer></app-footer>

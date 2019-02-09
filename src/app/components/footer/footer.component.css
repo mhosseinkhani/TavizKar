@@ -1,7 +1,17 @@
-footer {
-  text-align: center;
+
+
+footer img {
+  width: 40px;
+  float: left;
+  bottom: -56px;
+  left: 3px;
 }
 
-footer > hr {
-  width: 90%;
+footer {
+  height: 50px;
+  background: #1f2021;
+  border-top: solid #c7e5f9;  text-align: center;
+
 }
+
+footer p {vertical-align: sub;color: #c3c3c3;}

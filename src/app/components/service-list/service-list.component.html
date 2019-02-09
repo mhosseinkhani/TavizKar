@@ -1,0 +1,23 @@
+<div class="ui card claim-list">
+  <div class="content">
+    <div class="header">My claims</div>
+  </div>
+  <div class="content">
+
+    <div *ngFor="let claim of data" class="claim-row">
+      <div>
+        <strong>Mark & model: </strong>{{ claim.OilName }}
+      </div>
+      <div>
+        <strong>Reporter: </strong>{{ claim.Km }} - {{ claim.NextKm }}
+      </div>
+      <div>
+        <strong>Number of photos: </strong>{{ claim.Car.PlateNumber }}
+      </div>
+    </div>
+
+    <div *ngIf="!claims || data.length === 0">
+      You did not register any claim.
+    </div>
+  </div>
+</div>
