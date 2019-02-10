@@ -1,6 +1,6 @@
 <div class="ui card claim-list">
   <div class="content">
-    <b>سریس های من</b>
+    <b>سرویس های من</b>
   </div>
   <div class="content inbox-nest">
     <ul>
@@ -23,10 +23,9 @@
         </div>
       </li>
     </ul>
-    <button class="ui primary  button" [ngClass]="{'loading': isLoading}">بیشتر</button>
-    <button class="ui primary loading button">Loading</button>
-
     <div *ngIf="!data || data.length === 0">
       سرویسی ثبت نگردید است. </div>
+    <div class="center"> <button class="ui primary button" [ngClass]="{'loading': isLoading}" (click)="loadMore()">دریافت بیشتر</button>
+    </div>
   </div>
 </div>

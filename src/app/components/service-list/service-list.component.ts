@@ -17,9 +17,9 @@ export class ServiceListComponent implements OnInit {
 
   private getData() {
     this.service.getAll(this.page).subscribe(response => {
+      this.isLoading = false;
       response.forEach(
         (item): any => {
-          this.isLoading = false;
           const serviced = [];
           Object.keys(item).forEach(a => {
             if (

@@ -205,3 +205,7 @@ textarea {
   background: rgba(0, 0, 0, 0.28);
   font-size: 12px;
 }
+
+.center {
+  text-align: center;
+}

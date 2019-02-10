@@ -13,4 +13,8 @@ export class CarServiceService {
       environment.main_api_url + "/Services" + "?page=" + page
     );
   }
+
+  addService(item): Observable<any> {
+    return this.http.post(environment.main_api_url + "/Services", item);
+  }
 }

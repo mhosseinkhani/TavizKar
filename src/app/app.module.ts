@@ -1,27 +1,31 @@
-import { CarServiceService } from './shared/CarService.Service';
-import {environment} from '../environments/environment';
-import {BrowserModule} from '@angular/platform-browser';
-import {HTTP_INTERCEPTORS, HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
-import {NgModule} from '@angular/core';
-import {ServiceWorkerModule} from '@angular/service-worker';
-import {FormsModule} from "@angular/forms";
+import { CarServiceService } from "./shared/CarService.Service";
+import { environment } from "../environments/environment";
+import { BrowserModule } from "@angular/platform-browser";
+import {
+  HTTP_INTERCEPTORS,
+  HttpClientJsonpModule,
+  HttpClientModule
+} from "@angular/common/http";
+import { NgModule } from "@angular/core";
+import { ServiceWorkerModule } from "@angular/service-worker";
+import { FormsModule } from "@angular/forms";
 
-import {SuiModule} from 'ng2-semantic-ui';
+import { SuiModule } from "ng2-semantic-ui";
 
-import {AppRoutingModule} from "./routing.module";
-import {AppComponent} from './app.component';
-import {MenuComponent} from './components/menu/menu.component';
-import {FooterComponent} from './components/footer/footer.component';
-import {CarInfoService} from "./shared/car-info.service";
-import {PushNotificationService} from "./shared/push-notification.service";
-import {CarPredicatorService} from "./shared/car-predicator.service";
-import {ClaimCacheService} from "./shared/claim-cache.service";
- import {HttpInterceptorService} from "./shared/http-interceptor.service";
-import {NgHttpLoaderModule} from "ng-http-loader";
-import { ServiceCreateComponent } from './components/service-create/service-create.component';
-import { ServiceListComponent } from './components/service-list/service-list.component';
-import { HomeComponent } from './components/home/home.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from "./routing.module";
+import { AppComponent } from "./app.component";
+import { MenuComponent } from "./components/menu/menu.component";
+import { FooterComponent } from "./components/footer/footer.component";
+import { CarInfoService } from "./shared/car-info.service";
+import { PushNotificationService } from "./shared/push-notification.service";
+import { CarPredicatorService } from "./shared/car-predicator.service";
+import { HttpInterceptorService } from "./shared/http-interceptor.service";
+import { NgHttpLoaderModule } from "ng-http-loader";
+import { ServiceCreateComponent } from "./components/service-create/service-create.component";
+import { ServiceListComponent } from "./components/service-list/service-list.component";
+import { HomeComponent } from "./components/home/home.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToastrModule } from "ng6-toastr-notifications";
 
 @NgModule({
   declarations: [
@@ -40,14 +44,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
-    NgHttpLoaderModule
+    ServiceWorkerModule.register("/ngsw-worker.js", {
+      enabled: environment.production
+    }),
+    NgHttpLoaderModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     CarInfoService,
     PushNotificationService,
     CarPredicatorService,
-     CarServiceService,
+    CarServiceService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
@@ -56,5 +63,4 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

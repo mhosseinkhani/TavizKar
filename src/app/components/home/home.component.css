@@ -11,3 +11,54 @@
 .grid {
   padding: 10px !important;
 }
+
+.login_box{
+  background: #f32d27;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…BoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+  background: linear-gradient(45deg, #f32d27 5%,#ff6b45 99%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f32d27', endColorstr='#ff6b45',GradientType=1 );
+  text-align: center;
+}
+
+.image-circle{
+  border-radius: 50%;
+  width: 175px;
+  height: 175px;
+  border: 4px solid #FFF;
+  margin: 10px;
+}
+
+.follow{
+  background-color:#FC563B;
+  height: 80px;
+  cursor:pointer;
+}
+
+.follow:hover {
+  background-color:#F22F26;
+  height: 80px;
+  cursor:pointer;
+}
+
+.login_control{
+  background-color:#FFF;
+  padding:10px;
+
+}
+
+.control {
+  color:#000;
+  margin:10px;
+}
+
+.label {
+  color: #EB4F26;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.ui.eight-wide {
+  width: 50%;
+  display: inline-block;
+  border: #f73f30 solid 1px;
+}

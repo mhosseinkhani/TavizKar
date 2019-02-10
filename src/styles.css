@@ -50,3 +50,10 @@ a.item:nth-child(2) {
 button {
     font-family: iranyekan !important;
 }
+
+.toastr {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 25px 10px !important;
+  margin-top: 55px !important;
+}
