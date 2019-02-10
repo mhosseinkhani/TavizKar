@@ -1,23 +1,32 @@
 <div class="ui card claim-list">
   <div class="content">
-    <div class="header">My claims</div>
+    <b>سریس های من</b>
   </div>
-  <div class="content">
+  <div class="content inbox-nest">
+    <ul>
+      <li *ngFor="let claim of data"> <img alt="" class="img-circle star" src="../../../assets/icons/icon-slider.png">
+        <h4>{{ claim.Car.UserMobile + (claim.Car.UserFullName?' - '+claim.Car.UserFullName:'')}} </h4>
+        <a class="ui label servie"> <small> سرویس شده
+            <b><i class="clock outline icon"></i>{{ claim.CreatedOnFa }}</b>-<b><i class="icon-clock"></i> {{
+              claim.Km | number:0 }}</b>
+          </small></a>
+        <a class="ui label servie"> <small> سرویس بعد
+            <b><i class="clock outline icon"></i>{{ claim.NextServiceOnFa }}</b>-<b><i class="icon-clock"></i> {{
+              claim.NextKm | number:0 }}</b>
+          </small></a>
+        <!-- <p>
+          سرویس بعد در <b>{{ claim.NextServiceOnFa }}</b> یا <b>{{ claim.NextKm |
+            number:0 }}km</b>
+        </p> -->
+        <div class="inbox-header">
+          <a *ngFor="let item of claim.serviced" class="ui teal small label"> {{ item }}</a>
+        </div>
+      </li>
+    </ul>
+    <button class="ui primary  button" [ngClass]="{'loading': isLoading}">بیشتر</button>
+    <button class="ui primary loading button">Loading</button>
 
-    <div *ngFor="let claim of data" class="claim-row">
-      <div>
-        <strong>Mark & model: </strong>{{ claim.OilName }}
-      </div>
-      <div>
-        <strong>Reporter: </strong>{{ claim.Km }} - {{ claim.NextKm }}
-      </div>
-      <div>
-        <strong>Number of photos: </strong>{{ claim.Car.PlateNumber }}
-      </div>
-    </div>
-
-    <div *ngIf="!claims || data.length === 0">
-      You did not register any claim.
-    </div>
+    <div *ngIf="!data || data.length === 0">
+      سرویسی ثبت نگردید است. </div>
   </div>
 </div>
