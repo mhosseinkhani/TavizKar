@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { AppComponent } from "src/app/app.component";
+import { CarInfoService } from "src/app/shared/car-info.service";
 
 @Component({
   selector: "app-home",
@@ -6,7 +8,21 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor(private servie: CarInfoService) {}
+  public userInfo = AppComponent.userInfo;
+  public Adses: any = [];
+  ngOnInit() {
+    this.getAds();
+  }
 
-  ngOnInit() {}
+  getAds() {
+    this.Adses = [];
+    this.servie.getAds(0).subscribe(response => {
+      response.forEach(
+        (item): any => {
+          this.Adses.push(item);
+        }
+      );
+    });
+  }
 }

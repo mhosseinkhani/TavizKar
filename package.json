@@ -31,6 +31,7 @@
     "moment": "^2.18.1",
     "ng-http-loader": "^2.0.0",
     "ng2-semantic-ui": "^0.9.7",
+    "ng6-toastr-notifications": "^1.0.4",
     "nodemon": "^1.11.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"

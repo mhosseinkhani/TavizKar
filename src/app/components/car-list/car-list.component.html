@@ -1,0 +1,24 @@
+<div class="ui card claim-list">
+  <div class="content">
+    <b>مشتری های من</b>
+  </div>
+  <div class="content inbox-nest">
+    <ul>
+      <li *ngFor="let claim of data"> <img alt="" class="img-circle star" src="../../../assets/icons/icon-slider.png">
+        <h4>{{ claim.UserMobile + (claim.UserFullName?' - '+claim.UserFullName:'')}} </h4>
+        <!-- <a class="ui label servie"> <small> ایجاد شده
+            <b>{{ claim.CreatedOnFa }}</b>
+          </small></a> -->
+        <a class="ui label servie"> <small>نوع ماشین
+            <b>{{ claim.CarType }}</b>- مدل <b> {{
+              claim.ProductYear}}</b>
+          </small></a>
+      </li>
+    </ul>
+    <div *ngIf="!data || data.length === 0">
+      مشتری ثبت نگردیده است. </div>
+    <div class="center"> <button class="ui primary button" [ngClass]="{'loading': isLoading}" (click)="loadMore()">دریافت
+        بیشتر</button>
+    </div>
+  </div>
+</div>

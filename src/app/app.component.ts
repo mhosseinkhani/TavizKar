@@ -11,7 +11,14 @@ import { RouterOutlet } from "@angular/router";
 })
 export class AppComponent implements OnInit {
   constructor(private swUpdate: SwUpdate) {}
-
+  public static userInfo: UserInfo = {
+    Avatar: "../../../assets/icons/icon-128x128 - Copy.png",
+    CarsQty: 100,
+    FullName: "اتوسرویس ماهان",
+    Description: "خدمات روغن و لاستیک",
+    ServiceQty: 1482,
+    TodayServiceQty: 24
+  };
   ngOnInit() {
     if (this.swUpdate.isEnabled) {
       this.swUpdate.available.subscribe(() => {
@@ -22,6 +29,19 @@ export class AppComponent implements OnInit {
     }
   }
   prepareRoute(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+    return (
+      outlet &&
+      outlet.activatedRouteData &&
+      outlet.activatedRouteData["animation"]
+    );
   }
+}
+
+interface UserInfo {
+  FullName: string;
+  Description: string;
+  Avatar: string;
+  CarsQty: number;
+  ServiceQty: number;
+  TodayServiceQty: number;
 }

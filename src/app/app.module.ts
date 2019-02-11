@@ -26,6 +26,7 @@ import { ServiceListComponent } from "./components/service-list/service-list.com
 import { HomeComponent } from "./components/home/home.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from "ng6-toastr-notifications";
+import { CarListComponent } from "./components/car-list/car-list.component";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ToastrModule } from "ng6-toastr-notifications";
     MenuComponent,
     ServiceListComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    CarListComponent
   ],
   imports: [
     BrowserModule,

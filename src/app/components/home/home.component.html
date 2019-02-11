@@ -1,20 +1,18 @@
-<div class="login_box">
-  <div>
-    <div class="line">
-      <h3>12 : 30 AM</h3>
-    </div>
-    <div class="outter"><img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="image-circle" /></div>
-    <h1> سلام ماهان سلامی</h1>
-   </div>
-  <div class="ui eight-wide follow line">
-    <h3>
-      125651 <br /> <span>FOLLOWERS</span>
-    </h3>
+<div class="rela-block profile-card">
+  <img class="profile-pic" id="profile_pic" [src]="userInfo.Avatar">
+  <div class="rela-block profile-name-container">
+    <div class="rela-block user-name" id="user_name">{{userInfo.FullName}}</div>
+    <div class="rela-block user-desc" id="user_description">{{userInfo.Description}}</div>
   </div>
-  <div class="ui eight-wide follow line">
-    <h3>
-      125651 <br /> <span>FOLLOWERS</span>
-    </h3>
+  <div class="rela-block profile-card-stats">
+    <div class="floated profile-stat works" id="num_works">{{userInfo.TodayServiceQty |number:0}} <br>
+    </div>
+    <div class="floated profile-stat followers" id="num_followers">{{userInfo.ServiceQty |number:0}}
+      <br>
+    </div>
+    <div class="floated profile-stat following" id="num_following">{{userInfo.CarsQty |number:0}}
+      <br>
+    </div>
   </div>
 </div>
 
@@ -24,5 +22,15 @@
   <a class="orange five wide column">
     <i class="fas icon-car" [routerLink]="['/services']"></i>لیست سرویس ها
   </a>
-  <a class="yellow five wide column"><i class="fas icon-people"></i>لیست مشتری ها</a>
+  <a class="yellow five wide column" [routerLink]="['/clients']"><i class="fas icon-people"></i>لیست مشتری ها</a>
+</div>
+<div class="ads-section" *ngIf="Adses">
+  <h2>تبلیغات</h2>
+  <ul>
+    <li *ngFor="let ads of Adses">
+      <img src="{{ads.Image}}">
+      <h4>{{ads.Title}}</h4>
+      <p>{{ads.Description}}</p>
+    </li>
+  </ul>
 </div>

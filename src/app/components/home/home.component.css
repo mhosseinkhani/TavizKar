@@ -12,53 +12,119 @@
   padding: 10px !important;
 }
 
-.login_box{
-  background: #f32d27;
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…BoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
-  background: linear-gradient(45deg, #f32d27 5%,#ff6b45 99%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f32d27', endColorstr='#ff6b45',GradientType=1 );
+.profile-card {
+  padding-top: 80px;
+  margin: 110px auto 30px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.26);
+}
+
+.profile-pic {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  height: 130px;
+  width: 130px;
+  border: 5px solid #fff;
+  border-radius: 100%;
+  background: white;
+}
+
+.profile-name-container {
+  margin: 0 auto 10px;
+  /* padding: 10px; */
   text-align: center;
 }
 
-.image-circle{
-  border-radius: 50%;
-  width: 175px;
-  height: 175px;
-  border: 4px solid #FFF;
-  margin: 10px;
+.user-name {
+  font-size: 24px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  line-height: 30px;
+  margin-bottom: 7px;
 }
 
-.follow{
-  background-color:#FC563B;
-  height: 80px;
-  cursor:pointer;
+.user-desc {
+  letter-spacing: 1px;
+  color: #999;
 }
 
-.follow:hover {
-  background-color:#F22F26;
-  height: 80px;
-  cursor:pointer;
+.profile-card-stats {
+  height: 75px;
+  padding: 10px 0px;
+  text-align: center;
+  overflow: hidden;
 }
 
-.login_control{
-  background-color:#FFF;
-  padding:10px;
-
+.profile-stat {
+  height: 100%;
+  width: 33.3333%;
 }
 
-.control {
-  color:#000;
-  margin:10px;
+.profile-stat:after {
+  color: #999;
 }
 
-.label {
-  color: #EB4F26;
-  font-size: 18px;
-  font-weight: 500;
+.works::after {
+  content: "سرویس امروز";
 }
 
-.ui.eight-wide {
-  width: 50%;
+.followers::after {
+  content: "مجموع سرویس";
+}
+
+.following::after {
+  content: "مجموع مشتری ";
+}
+
+.floated {
   display: inline-block;
-  border: #f73f30 solid 1px;
 }
+
+
+
+/* ads */
+.ads-section {border: solid white 2px;margin: 15px 4px;}
+
+.ads-section h2 {
+    color: white;
+    font-family: inherit;
+    text-align: center;
+    background: #327cc5;
+    margin: 0 !important;
+}
+
+.ads-section ul li img {
+    width: 120px;
+    /* display: inline-block; */
+    float: right;
+    margin: 0 0 0 6px;
+}
+
+.ads-section ul li {color: white;}
+
+.ads-section ul {
+    padding: 0 5px 0 0;
+    margin: 7px 0;
+    list-style: none;
+}
+
+.ads-section ul li h4 {
+    margin: 0 !important;
+    padding: 0px 8px 0 0;
+    font-family: inherit;
+    color: #fbbd08;
+}
+
+.ads-section ul li p {
+    display: block;
+    font-weight: 100;
+    text-align: justify;
+    padding: 6px;
+    line-height: initial;
+    color: white;
+}
+
+/* end ads */

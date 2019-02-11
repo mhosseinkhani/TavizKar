@@ -8,6 +8,7 @@ body {
 .main-container {
   margin: 60px auto 19px;
   width: 95%;
+  height: calc(100%);
 }
 
 #loading {

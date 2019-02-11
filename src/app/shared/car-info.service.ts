@@ -18,4 +18,14 @@ export class CarInfoService {
       "callback"
     );
   }
+
+  getClients(page = 0): Observable<any> {
+    return this.http.get(
+      environment.main_api_url + "/Client" + "?page=" + page
+    );
+  }
+
+  getAds(page = 0): Observable<any> {
+    return this.http.get(environment.main_api_url + "//Ads" + "?page=" + page);
+  }
 }

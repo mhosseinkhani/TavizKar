@@ -57,3 +57,6 @@ button {
   padding: 25px 10px !important;
   margin-top: 55px !important;
 }
+a.five.wide.column:hover {
+  cursor: pointer;
+}
