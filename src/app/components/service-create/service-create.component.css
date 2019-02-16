@@ -72,3 +72,10 @@ sui-select.selection.field.ui.dropdown.search {
 .text-center {
   text-align: center;
 }
+.input-box {
+  padding: 0 15px;
+}
+
+.input-box input {
+  font-family: iranYekan !important;
+}

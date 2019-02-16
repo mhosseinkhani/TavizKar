@@ -1,0 +1,50 @@
+<div class="column" *ngIf="!activeMode">
+  <h2 class="ui teal image header">
+    <img src="../../../assets/icons/logo-ft-3.png" class="image">
+    <div class="content">
+      ورود به سامانه کارچار </div>
+  </h2>
+  <form class="ui large form">
+    <div class="ui stacked segment">
+      <div class="field">
+        <p>لطفا شماره همراه خود را وارد نمایید</p>
+        <div class="ui left icon input">
+          <!-- <i class="icon-people "></i> -->
+          <input type="number" [(ngModel)]="mobile" [ngModelOptions]="{standalone: true}" placeholder="شماره همراه">
+        </div>
+      </div>
+      <!-- <div class="field">
+        <div class="ui left icon input">
+          <i class="lock icon"></i>
+          <input type="password" name="password" placeholder="">
+        </div>
+      </div> -->
+      <div class="ui fluid large teal submit button" (click)="doLogin()">ورود</div>
+    </div>
+    <div class="ui error message"></div>
+  </form>
+</div>
+
+
+<div class="column" *ngIf="activeMode">
+  <h2 class="ui teal image header">
+    <img src="../../../assets/icons/logo-ft-3.png" class="image">
+    <div class="content">
+      ورود به سامانه کارچار </div>
+  </h2>
+  <form class="ui large form">
+    <div class="ui stacked segment">
+      <div class="field">
+        <p>کد ارسالی به تلفن همراه را وارد نمایید.</p>
+        <p style="direction: ltr;color: #ff4900;font-weight: 700;letter-spacing: 10px;font-size: x-large;margin: 5px;">{{timer[0] +' : '+timer[1]}}</p>
+        <div class="ui left icon input">
+          <input type="number" max="999999" [(ngModel)]="activeCode" [ngModelOptions]="{standalone: true}" placeholder="- - - - - -">
+        </div>
+      </div>
+      <div class="ui two wide large teal submit button" (click)="doLogin()">ورود</div>
+      <div class="ui two wide large red submit button" (click)="activeMode=false">اصلاح شماره</div>
+      <div class="ui two wide large teal submit button" (click)="resend()" *ngIf="isResend" >ارسال مجدد کد</div>
+    </div>
+    <div class="ui error message"></div>
+  </form>
+</div>

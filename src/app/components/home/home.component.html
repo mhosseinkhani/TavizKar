@@ -1,30 +1,34 @@
 <div class="rela-block profile-card">
-  <img class="profile-pic" id="profile_pic" [src]="userInfo.Avatar">
+  <img class="profile-pic" id="profile_pic" src="../../../assets/icons/logo-ft-3.png">
   <div class="rela-block profile-name-container">
     <div class="rela-block user-name" id="user_name">{{userInfo.FullName}}</div>
     <div class="rela-block user-desc" id="user_description">{{userInfo.Description}}</div>
   </div>
   <div class="rela-block profile-card-stats">
-    <div class="floated profile-stat works" id="num_works">{{userInfo.TodayServiceQty |number:0}} <br>
+    <div class="floated profile-stat works" id="num_works">{{userInfo.ServiceQty |number:0}} <br>
     </div>
-    <div class="floated profile-stat followers" id="num_followers">{{userInfo.ServiceQty |number:0}}
+    <div class="floated profile-stat followers" id="num_followers">{{userInfo.TodayServiceQty |number:0}}
       <br>
     </div>
-    <div class="floated profile-stat following" id="num_following">{{userInfo.CarsQty |number:0}}
+    <div class="floated profile-stat following" id="num_following">{{userInfo.ClientQty |number:0}}
       <br>
     </div>
   </div>
 </div>
 
 <div class="ui grid service-element field">
-  <a class="olive five wide column" [routerLink]="['/create']"><i class="fas icon-bottle"></i>سرویس جدید</a>
-  <!-- <a class="brown five wide column"><i class="fas icon-title-car"></i>مشتری جدید</a> -->
-  <a class="orange five wide column">
-    <i class="fas icon-car" [routerLink]="['/services']"></i>لیست سرویس ها
-  </a>
-  <a class="yellow five wide column" [routerLink]="['/clients']"><i class="fas icon-people"></i>لیست مشتری ها</a>
+  <div class="three column row">
+
+
+    <a class="olive  column" [routerLink]="['/create']"><i class="fas icon-bottle"></i>سرویس جدید</a>
+    <!-- <a class="brown five wide column"><i class="fas icon-title-car"></i>مشتری جدید</a> -->
+    <a class="orange   column">
+      <i class="fas icon-car" [routerLink]="['/services']"></i>لیست سرویس ها
+    </a>
+    <a class="yellow   column" [routerLink]="['/clients']"><i class="fas icon-people"></i>لیست مشتری ها</a>
+  </div>
 </div>
-<div class="ads-section" *ngIf="Adses">
+<div class="ads-section" *ngIf="Adses.length>0">
   <h2>تبلیغات</h2>
   <ul>
     <li *ngFor="let ads of Adses">

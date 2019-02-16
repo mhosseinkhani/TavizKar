@@ -27,6 +27,10 @@ import { HomeComponent } from "./components/home/home.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from "ng6-toastr-notifications";
 import { CarListComponent } from "./components/car-list/car-list.component";
+import { LoginComponent } from "./components/login/login.component";
+import { AuthGuard } from "./shared/canActive";
+import { UserService } from "./shared/User.Service";
+import { ChangeInfoComponent } from "./components/changeInfo/changeInfo.component";
 
 @NgModule({
   declarations: [
@@ -36,7 +40,9 @@ import { CarListComponent } from "./components/car-list/car-list.component";
     ServiceListComponent,
     FooterComponent,
     HomeComponent,
-    CarListComponent
+    CarListComponent,
+    LoginComponent,
+    ChangeInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -57,11 +63,13 @@ import { CarListComponent } from "./components/car-list/car-list.component";
     PushNotificationService,
     CarPredicatorService,
     CarServiceService,
+    UserService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
       multi: true
-    }
+    },
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

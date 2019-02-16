@@ -1,0 +1,23 @@
+<div class="column">
+  <h2 class="ui teal image header">
+    <img src="../../../assets/icons/logo-ft-3.png" class="image">
+    <div class="content">
+      بروز رسانی اطلاعات </div>
+  </h2>
+  <form class="ui large form">
+    <div class="ui stacked segment">
+      <div class="field">
+        <p>اطلاعات نمایشی برای کاربران</p>
+        <div class="ui left icon input">
+          <input type="text" [(ngModel)]="fullName" [ngModelOptions]="{standalone: true}" placeholder=" نام کامل مانند : اتو سرویس ماهان">
+        </div>
+<br>
+        <div class="ui left icon input">
+          <input type="text" [(ngModel)]="description" [ngModelOptions]="{standalone: true}" placeholder="توضیحات مانند : خدمات ورغن و لاستیک">
+        </div>
+      </div>
+      <div class="ui two wide large teal submit button" (click)="doUpdate()">بروز رسانی</div>
+    </div>
+    <div class="ui error message"></div>
+  </form>
+</div>

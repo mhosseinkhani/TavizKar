@@ -12,7 +12,7 @@
     <form class="ui form">
       <div class="input-box">
         <div class="ui icon input field ">
-          <input type="text" placeholder="شماره موبایل مشتری" [(ngModel)]="formService.Car.UserMobile" [ngModelOptions]="{standalone: true}">
+          <input type="number" placeholder="شماره موبایل مشتری" [(ngModel)]="formService.Car.UserMobile" [ngModelOptions]="{standalone: true}">
           <i class="mobile alternate icon"></i>
         </div>
         <div class="ui icon input field">
@@ -20,11 +20,11 @@
           <i class="user icon"></i>
         </div>
         <div class="ui icon input field eight wide">
-          <input type="text" placeholder="کیلومتر فعلی" [(ngModel)]="formService.Km" [ngModelOptions]="{standalone: true}">
+          <input type="number"   placeholder="کیلومتر فعلی" [(ngModel)]="formService.Km" [ngModelOptions]="{standalone: true}">
           <i class="icon  icon-clock"></i>
         </div>
         <div class="ui icon input field eight wide">
-          <input type="text" placeholder="کیلومتر بعد" [(ngModel)]="formService.NextKm" [ngModelOptions]="{standalone: true}">
+          <input type="number" step="1000" placeholder="کارکرد روغن" [(ngModel)]="formService.NextKm" [ngModelOptions]="{standalone: true}">
           <i class="icon icon-clock"></i>
         </div>
         <sui-select class="selection field" [(ngModel)]="formService.OilName" [ngModelOptions]="{standalone: true}"

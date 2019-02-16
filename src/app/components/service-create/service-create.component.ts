@@ -47,6 +47,7 @@ export class ServiceCreateComponent implements OnInit {
           }
       );
     });
+    this.formService.NextKm = 6000;
   }
 
   submit() {
@@ -80,7 +81,9 @@ export class ServiceCreateComponent implements OnInit {
       UserFullName: this.formService.Car.UserFullName
     };
     item.Km = this.formService.Km;
-    item.NextKm = this.formService.NextKm;
+    item.NextKm =
+      Number.parseInt(this.formService.Km, 10) +
+      Number.parseInt(this.formService.NextKm, 10);
     item.OilName = this.formService.OilName.name;
     item.OilType = this.formService.OilName.code;
     this.isLoading = true;
@@ -90,7 +93,7 @@ export class ServiceCreateComponent implements OnInit {
         this.isLoading = false;
       },
       error => {
-        this.toastr.errorToastr("متاسفانه خطایی رخ داده است", "خطا" );
+        this.toastr.errorToastr("متاسفانه خطایی رخ داده است", "خطا");
         this.isLoading = false;
       }
     );

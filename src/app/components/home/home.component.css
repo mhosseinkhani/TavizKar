@@ -5,7 +5,7 @@
 
 .grid a {
   text-align: center;
-  margin: 2px;
+  /* margin: 2px; */
 }
 
 .grid {
@@ -27,9 +27,9 @@
   transform: translateX(-50%);
   height: 130px;
   width: 130px;
-  border: 5px solid #fff;
+  border: 1px solid #ececec;
   border-radius: 100%;
-  background: white;
+  background: #efefef;
 }
 
 .profile-name-container {
@@ -103,7 +103,7 @@
     margin: 0 0 0 6px;
 }
 
-.ads-section ul li {color: white;}
+.ads-section ul li {color: white;display: inline-block;width: 100%;}
 
 .ads-section ul {
     padding: 0 5px 0 0;

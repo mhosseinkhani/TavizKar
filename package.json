@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4203",
+    "start": "ng serve --port 4207",
     "build": "ng build --prod && cd dist/carchar-app && http-server -c-1 .",
     "buildProd": "ng build --prod",
     "startMobile": "ng serve --host 0.0.0.0 --disable-host-check",
