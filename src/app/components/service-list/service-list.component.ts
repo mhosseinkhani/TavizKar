@@ -7,10 +7,11 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./service-list.component.css"]
 })
 export class ServiceListComponent implements OnInit {
-  constructor(private service: CarServiceService) {}
+  constructor(private service: CarServiceService) { }
   private page = 0;
   public data: any[] = [];
   public isLoading = true;
+  public showLoadMore = true;
   ngOnInit() {
     this.getData();
   }
@@ -18,6 +19,7 @@ export class ServiceListComponent implements OnInit {
   private getData() {
     this.service.getAll(this.page).subscribe(response => {
       this.isLoading = false;
+      if(response.length == 0) this.showLoadMore = false;
       response.forEach(
         (item): any => {
           const serviced = [];
@@ -46,6 +48,8 @@ export class ServiceListComponent implements OnInit {
           } else {
             item.serviced = serviced;
           }
+          item.title = item.Car.UserMobile ? item.Car.UserMobile : '' + (item.Car.UserFullName ? ' - ' + item.Car.UserFullName : '');
+          if (item.title.length == 0) item.title = 'ناشناس';
           this.data.push(item);
         }
       );

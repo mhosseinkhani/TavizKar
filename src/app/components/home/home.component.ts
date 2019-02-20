@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { AppComponent } from "src/app/app.component";
-import { CarInfoService } from "src/app/shared/car-info.service";
+import { CarInfoService } from "../../shared/car-info.service";
+import { AppComponent } from "../../app.component";
 
 @Component({
   selector: "app-home",
