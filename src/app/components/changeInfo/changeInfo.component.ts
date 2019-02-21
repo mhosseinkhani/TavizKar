@@ -17,8 +17,9 @@ export class ChangeInfoComponent implements OnInit {
     public toastr: ToastrManager,
     private usreService: UserService
   ) {
-    this.fullName = AppComponent.userInfo.FullName;
-    this.description = AppComponent.userInfo.Description;
+    const user:any = JSON.parse(window.localStorage.getItem("userInfo"));
+    this.fullName =user.FullName;
+    this.description = user.Description;
   }
 
   public fullName: any;
@@ -45,7 +46,10 @@ export class ChangeInfoComponent implements OnInit {
   }
   private getInfo() {
     this.usreService.getUserSummery().subscribe(res => {
-      AppComponent.userInfo = res;
+      // AppComponent.userInfo = res; 
+         window.localStorage.setItem("userInfo", JSON.stringify(res));
+
     });
+
   }
 }

@@ -26,6 +26,6 @@ export class CarInfoService {
   }
 
   getAds(page = 0): Observable<any> {
-    return this.http.get(environment.main_api_url + "//Ads" + "?page=" + page);
+    return this.http.get(environment.main_api_url + "/client/tabligh" + "?page=" + page);
   }
 }

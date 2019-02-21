@@ -12,19 +12,29 @@ import { UserService } from "./shared/User.Service";
 })
 export class AppComponent implements OnInit {
   constructor(private swUpdate: SwUpdate, private userService: UserService) {
+    window.localStorage.setItem("userInfo", JSON.stringify({
+      Description: "",
+      FullName: "",
+      TodayServiceQty: 0,
+      ClientQty: 1,
+      ServiceQty: 4,
+      Avatar: "../../../assets/icons/icon-128x128 - Copy.png"
+    }));
     this.getInfo();
   }
-  public static userInfo = {
-    Description: "",
-    FullName: "",
-    TodayServiceQty: 0,
-    ClientQty: 1,
-    ServiceQty: 4,
-    Avatar: "../../../assets/icons/icon-128x128 - Copy.png"
-  };
+  // public static userInfo = {
+  //   Description: "",
+  //   FullName: "",
+  //   TodayServiceQty: 0,
+  //   ClientQty: 1,
+  //   ServiceQty: 4,
+  //   Avatar: "../../../assets/icons/icon-128x128 - Copy.png"
+  // };
   private getInfo() {
     this.userService.getUserSummery().subscribe(res => {
-      AppComponent.userInfo = res;
+      // AppComponent.userInfo = res;
+      debugger;
+      window.localStorage.setItem("userInfo", JSON.stringify(res));
     });
   }
 
