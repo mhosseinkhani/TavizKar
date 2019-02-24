@@ -47,7 +47,7 @@ export class ServiceCreateComponent implements OnInit {
           }
       );
     });
-    this.formService.NextKm = 6000;
+    this.formService.NextKm = 5000;
   }
 
   submit() {

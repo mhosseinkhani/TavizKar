@@ -11,6 +11,7 @@ export class CarListComponent implements OnInit {
   private page = 0;
   public data: any[] = [];
   public isLoading = true;
+  public showLoadMore = true;
   ngOnInit() {
     this.getData();
   }
@@ -18,6 +19,7 @@ export class CarListComponent implements OnInit {
   private getData() {
     this.service.getClients(this.page).subscribe(response => {
       this.isLoading = false;
+      if(response.length == 0) this.showLoadMore = false;
       response.forEach(
         (item): any => {
           this.data.push(item);

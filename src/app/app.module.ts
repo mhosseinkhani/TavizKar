@@ -31,6 +31,7 @@ import { LoginComponent } from "./components/login/login.component";
 import { AuthGuard } from "./shared/canActive";
 import { UserService } from "./shared/User.Service";
 import { ChangeInfoComponent } from "./components/changeInfo/changeInfo.component";
+import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { ChangeInfoComponent } from "./components/changeInfo/changeInfo.componen
       useClass: HttpInterceptorService,
       multi: true
     },
+    // {provide: LocationStrategy, useClass: HashLocationStrategy},
     AuthGuard
   ],
   bootstrap: [AppComponent]

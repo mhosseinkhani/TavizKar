@@ -5,7 +5,7 @@
   <div class="content inbox-nest">
     <ul>
       <li *ngFor="let claim of data"> <img alt="" class="img-circle star" src="../../../assets/icons/icon-slider.png">
-        <h4>{{ claim.Car.UserMobile + (claim.Car.UserFullName?' - '+claim.Car.UserFullName:'')}} </h4>
+        <h4>{{ claim.title}} </h4>
         <a class="ui label servie"> <small> سرویس شده
             <b><i class="clock outline icon"></i>{{ claim.CreatedOnFa }}</b>-<b><i class="icon-clock"></i> {{
               claim.Km | number:0 }}</b>
@@ -25,7 +25,8 @@
     </ul>
     <div *ngIf="!data || data.length === 0">
       سرویسی ثبت نگردیده است. </div>
-    <div class="center"> <button class="ui primary button" [ngClass]="{'loading': isLoading}" (click)="loadMore()">دریافت بیشتر</button>
+    <div class="center" *ngIf="showLoadMore"> <button class="ui primary button" [ngClass]="{'loading': isLoading}"
+        (click)="loadMore()">دریافت بیشتر</button>
     </div>
   </div>
 </div>

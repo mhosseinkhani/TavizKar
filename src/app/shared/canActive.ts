@@ -4,11 +4,9 @@ import {
   ActivatedRouteSnapshot,
   CanActivate,
   RouterStateSnapshot,
-  RouterOutlet,
   Router
 } from "@angular/router";
 import { environment } from "src/environments/environment.prod";
-import { Observable } from "rxjs";
 
 @Injectable({ providedIn: "root" })
 export class AuthGuard implements CanActivate {
@@ -19,27 +17,24 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Promise<boolean> {
     return this.checkLogin()
-      .then(res => {
-        if (res == true) return true;
-        else this.router.navigate(["/login"]);      })
+      .then((res:any) => {
+        debugger
+        if (res == false) {
+          window.location.href = "/login";
+        }
+        return true;
+      })
       .catch(error => {
-        //
-        this.router.navigate(["/login"]);
+debugger
+        window.location.href = "/login";
+        // this.router.navigate(['/login']);
         return false;
       });
   }
 
-  checkLogin(): Promise<boolean> {
+  checkLogin(): Promise<any> {
     return this.http
       .get(environment.main_api_url + "/Account/CheckLogin")
-      .toPromise()
-      .then(res => {
-        if (res == true) return true;
-        else this.router.navigate(["/login"]);
-      })
-      .catch(error => {
-        this.router.navigate(["/login"]);
-        return false;
-      });
+      .toPromise();
   }
 }
