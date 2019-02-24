@@ -15,7 +15,7 @@ const appRoutes: Routes = [
   { path: "services", component: ServiceListComponent },
   { path: "clients", component: CarListComponent },
   { path: "login", component: LoginComponent },
-  { path: "updateInfo", component: ChangeInfoComponent }
+  { path: "updateInfo", component: ChangeInfoComponent , canActivate: [AuthGuard]}
 ];
 
 @NgModule({

@@ -12,7 +12,7 @@ import { Observable } from "rxjs";
 
 @Injectable({ providedIn: "root" })
 export class AuthGuard implements CanActivate {
-  constructor(private http: HttpClient,private router:Router) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -20,12 +20,12 @@ export class AuthGuard implements CanActivate {
   ): Promise<boolean> {
     return this.checkLogin()
       .then(res => {
-        return true;
-      })
+        if (res == true) return true;
+        else this.router.navigate(["/login"]);      })
       .catch(error => {
         //
-       this.router.navigate(['/login']);
-       return false;
+        this.router.navigate(["/login"]);
+        return false;
       });
   }
 
@@ -34,11 +34,11 @@ export class AuthGuard implements CanActivate {
       .get(environment.main_api_url + "/Account/CheckLogin")
       .toPromise()
       .then(res => {
-        return true;
+        if (res == true) return true;
+        else this.router.navigate(["/login"]);
       })
       .catch(error => {
-        this.router.navigate(['/login']);
-
+        this.router.navigate(["/login"]);
         return false;
       });
   }
