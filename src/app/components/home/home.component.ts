@@ -1,3 +1,4 @@
+import { UserService } from './../../shared/User.Service';
 import { Component, OnInit, OnChanges, SimpleChanges } from "@angular/core";
 import { CarInfoService } from "../../shared/car-info.service";
 import { AppComponent } from "../../app.component";
@@ -15,9 +16,13 @@ export class HomeComponent implements OnInit, OnChanges {
     const user: any = JSON.parse(window.localStorage.getItem("userInfo"));
     this.userInfo = user;
   }
-  constructor(private servie: CarInfoService) {
+  constructor(private servie: CarInfoService, private userService: UserService) {
     const user: any = JSON.parse(window.localStorage.getItem("userInfo"));
     this.userInfo = user;
+    this.userService.getUserSummery().subscribe(res => {
+      window.localStorage.setItem("userInfo", JSON.stringify(res.result));
+      this.userInfo =res.result;
+   });
   }
 
   ngOnInit() {}
