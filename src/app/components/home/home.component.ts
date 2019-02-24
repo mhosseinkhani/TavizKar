@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnChanges, SimpleChanges } from "@angular/core";
 import { CarInfoService } from "../../shared/car-info.service";
 import { AppComponent } from "../../app.component";
 
@@ -7,16 +7,20 @@ import { AppComponent } from "../../app.component";
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.css"]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnChanges {
+  public userInfo: any;
+  public Adses: any = [];
+
+  ngOnChanges(changes: SimpleChanges) {
+    const user: any = JSON.parse(window.localStorage.getItem("userInfo"));
+    this.userInfo = user;
+  }
   constructor(private servie: CarInfoService) {
     const user: any = JSON.parse(window.localStorage.getItem("userInfo"));
     this.userInfo = user;
   }
-  public userInfo: any;
-  public Adses: any = [];
-  ngOnInit() {
-    this.getAds();
-  }
+
+  ngOnInit() {}
 
   getAds() {
     this.Adses = [];

@@ -16,8 +16,8 @@ export class AppComponent implements OnInit {
       Description: "",
       FullName: "",
       TodayServiceQty: 0,
-      ClientQty: 1,
-      ServiceQty: 4,
+      ClientQty: 0,
+      ServiceQty: 0,
       Avatar: "../../../assets/icons/icon-128x128 - Copy.png"
     }));
     this.getInfo();
@@ -32,9 +32,8 @@ export class AppComponent implements OnInit {
   // };
   private getInfo() {
     this.userService.getUserSummery().subscribe(res => {
-      // AppComponent.userInfo = res;
-      debugger;
-      window.localStorage.setItem("userInfo", JSON.stringify(res));
+       window.localStorage.setItem("userInfo", JSON.stringify(res.result));
+
     });
   }
 

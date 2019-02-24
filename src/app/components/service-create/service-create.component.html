@@ -13,19 +13,19 @@
       <div class="input-box">
         <div class="ui icon input field ">
           <input type="number" placeholder="شماره موبایل مشتری" [(ngModel)]="formService.Car.UserMobile" [ngModelOptions]="{standalone: true}">
-          <i class="mobile alternate icon"></i>
+          <i class="far fa-mobile"></i>
         </div>
         <div class="ui icon input field">
           <input type="text" placeholder="نام مشتری" [(ngModel)]="formService.Car.UserFullName" [ngModelOptions]="{standalone: true}">
-          <i class="user icon"></i>
+          <i class="far fa-user "></i>
         </div>
         <div class="ui icon input field eight wide">
           <input type="number"   placeholder="کیلومتر فعلی" [(ngModel)]="formService.Km" [ngModelOptions]="{standalone: true}">
-          <i class="icon  icon-clock"></i>
+          <i class="far fa-tachometer-alt "></i>
         </div>
         <div class="ui icon input field eight wide">
           <input type="number" step="1000" placeholder="کارکرد روغن" [(ngModel)]="formService.NextKm" [ngModelOptions]="{standalone: true}">
-          <i class="icon icon-clock"></i>
+          <i class="far fa-road"></i>
         </div>
         <sui-select class="selection field" [(ngModel)]="formService.OilName" [ngModelOptions]="{standalone: true}"
           [options]="carMakes" labelField="name" placeholder="نوع روغن" [isSearchable]="true" #carModelSelect>
@@ -35,35 +35,35 @@
 
       <div class="ui grid service-element field">
         <div class="orange five wide column" (click)="selectedFilter.OilFilter =!selectedFilter.OilFilter" [ngClass]="{'dark' :!selectedFilter.OilFilter}">
-          <i class="check icon" *ngIf="selectedFilter.OilFilter"></i>روعن فیلتر
+          <i class="far fa-check" *ngIf="selectedFilter.OilFilter"></i>فیلتر روغن
         </div>
         <div class="yellow five wide column" (click)="selectedFilter.AirFilter =!selectedFilter.AirFilter" [ngClass]="{'dark' :!selectedFilter.AirFilter}"><i
-            class="check icon" *ngIf="selectedFilter.AirFilter"></i>فیلتر
+            class="far fa-check" *ngIf="selectedFilter.AirFilter"></i>فیلتر
           هوا</div>
         <div class="olive five wide column" (click)="selectedFilter.GearboxOil=!selectedFilter.GearboxOil" [ngClass]="{'dark' :!selectedFilter.GearboxOil}"><i
-            class="check icon" *ngIf="selectedFilter.GearboxOil"></i>روعن
+            class="far fa-check" *ngIf="selectedFilter.GearboxOil"></i>روغن
           گیربکس</div>
         <div class="brown five wide column" (click)="selectedFilter.BreakOil=!selectedFilter.BreakOil" [ngClass]="{'dark' :!selectedFilter.BreakOil}"><i
-            class="check icon" *ngIf="selectedFilter.BreakOil"></i>روعن
+            class="far fa-check" *ngIf="selectedFilter.BreakOil"></i>روغن
           ترمز</div>
         <div class="teal five wide column" (click)="selectedFilter.SteeringOil=!selectedFilter.SteeringOil" [ngClass]="{'dark' :!selectedFilter.SteeringOil}"><i
-            class="check icon" *ngIf="selectedFilter.SteeringOil"></i>روغن
+            class="far fa-check" *ngIf="selectedFilter.SteeringOil"></i>روغن
           هیدرولیک</div>
         <div class="blue five wide column" (click)="selectedFilter.BattryWater=!selectedFilter.BattryWater" [ngClass]="{'dark' :!selectedFilter.BattryWater}"><i
-            class="check icon" *ngIf="selectedFilter.BattryWater"></i>آب
+            class="far fa-check" *ngIf="selectedFilter.BattryWater"></i>آب
           باطری</div>
         <div class="violet five wide column" (click)="selectedFilter.Grease=!selectedFilter.Grease" [ngClass]="{'dark' :!selectedFilter.Grease}"><i
-            class="check icon" *ngIf="selectedFilter.Grease"></i>گریس</div>
+            class="far fa-check" *ngIf="selectedFilter.Grease"></i>گریس</div>
         <div class="purple five wide column" (click)="selectedFilter.WindSet=!selectedFilter.WindSet" [ngClass]="{'dark' :!selectedFilter.WindSet}"><i
-            class="check icon" *ngIf="selectedFilter.WindSet"></i>فیلتر
+            class="far fa-check" *ngIf="selectedFilter.WindSet"></i>فیلتر
           هوا</div>
         <div class="pink five wide column" (click)="selectedFilter.CabinFilter=!selectedFilter.CabinFilter" [ngClass]="{'dark' :!selectedFilter.CabinFilter}"><i
-            class="check icon" *ngIf="selectedFilter.CabinFilter"></i>فیلتر
+            class="far fa-check" *ngIf="selectedFilter.CabinFilter"></i>فیلتر
           کابین</div>
       </div>
       <div class="text-center">
         <button class="ui labeled green big icon button field" [ngClass]="{'loading': isLoading}" (click)="submit()">
-          <i class="plus  icon"></i>
+          <i class="fa-oil-can far"></i>
           ثبت سرویس
         </button></div>
     </form>

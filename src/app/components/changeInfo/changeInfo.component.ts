@@ -2,7 +2,7 @@ import { UserService } from "./../../shared/User.Service";
 import { AppComponent } from "./../../app.component";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
-import { environment } from "src/environments/environment.prod";
+import { environment } from "src/environments/environment";
 import { ToastrManager } from "ng6-toastr-notifications";
 import { Router } from "@angular/router";
 

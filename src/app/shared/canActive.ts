@@ -6,7 +6,7 @@ import {
   RouterStateSnapshot,
   Router
 } from "@angular/router";
-import { environment } from "src/environments/environment.prod";
+import { environment } from "src/environments/environment";
 
 @Injectable({ providedIn: "root" })
 export class AuthGuard implements CanActivate {
@@ -18,14 +18,14 @@ export class AuthGuard implements CanActivate {
   ): Promise<boolean> {
     return this.checkLogin()
       .then((res:any) => {
-        debugger
+
         if (res == false) {
           window.location.href = "/login";
         }
         return true;
       })
       .catch(error => {
-debugger
+
         window.location.href = "/login";
         // this.router.navigate(['/login']);
         return false;
