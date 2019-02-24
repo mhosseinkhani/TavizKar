@@ -53,11 +53,13 @@ sui-select.selection.field.ui.dropdown.search {
   margin: 1%;
 }
 
-.column .icon {
+.grid .far {
   position: absolute;
-  top: 10px;
-  left: 0;
-  font-size: 2em;
+  top: 10px !important;
+  left: 20px !important;
+  font-size: 4em !important;
+  color: white !important;
+  right: unset !important;
 }
 
 
@@ -78,4 +80,19 @@ sui-select.selection.field.ui.dropdown.search {
 
 .input-box input {
   font-family: iranYekan !important;
+}
+
+.input-box .far {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  color: #ccc;
+  font-size: x-large;
+}.fa-oil-can.far {
+
+  position: absolute;
+  left: 15px;
+  font-size: 2em;
+  top: 6px;
+
 }

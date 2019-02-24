@@ -32,8 +32,6 @@ export class AppComponent implements OnInit {
   // };
   private getInfo() {
     this.userService.getUserSummery().subscribe(res => {
-      // AppComponent.userInfo = res;
-      debugger;
       window.localStorage.setItem("userInfo", JSON.stringify(res));
     });
   }

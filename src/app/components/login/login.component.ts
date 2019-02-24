@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
-import { environment } from "src/environments/environment.prod";
+import { environment } from "src/environments/environment";
 import { ToastrManager } from "ng6-toastr-notifications";
 import { Router } from "@angular/router";
 
@@ -54,8 +54,8 @@ export class LoginComponent implements OnInit {
           null
         )
         .toPromise()
-        .then(res => {
-          window.localStorage.setItem("token", res.toString());
+        .then((res:any) => {
+          window.localStorage.setItem("token", res.access_token.toString());
           this.router.navigate(["/"]);
         })
         .catch(error => {

@@ -9,14 +9,14 @@ import { AppComponent } from "../../app.component";
 })
 export class HomeComponent implements OnInit {
   constructor(private servie: CarInfoService) {
-    debugger;
+ 
     const user: any = JSON.parse(window.localStorage.getItem("userInfo"));
     this.userInfo = user;
   }
   public userInfo: any;
   public Adses: any = [];
   ngOnInit() {
-    this.getAds();
+    //this.getAds();
   }
 
   getAds() {

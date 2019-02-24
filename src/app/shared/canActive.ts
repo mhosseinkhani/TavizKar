@@ -6,7 +6,7 @@ import {
   RouterStateSnapshot,
   Router
 } from "@angular/router";
-import { environment } from "src/environments/environment.prod";
+import { environment } from "src/environments/environment";
 
 @Injectable({ providedIn: "root" })
 export class AuthGuard implements CanActivate {

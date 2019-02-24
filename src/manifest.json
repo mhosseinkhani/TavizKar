@@ -1,7 +1,7 @@
 {
   "name": "carchar-app",
-  "short_name": "claim-rep",
-  "description": "Claim Reporter Sample PWA APP",
+  "short_name": "carchar-app",
+  "description": "نرم افزار جامع مدیریت خدمات خودرو",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "scope": "/",
