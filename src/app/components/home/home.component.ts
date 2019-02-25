@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit, OnChanges {
   public userInfo: any;
   public Adses: any = [];
 
+
   ngOnChanges(changes: SimpleChanges) {
     const user: any = JSON.parse(window.localStorage.getItem("userInfo"));
     this.userInfo = user;
