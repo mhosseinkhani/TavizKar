@@ -46,6 +46,7 @@ export class ServiceCreateComponent implements OnInit {
             name: m.make_display
           }
       );
+      // add here default value for oil
     });
     this.formService.NextKm = 5000;
   }
