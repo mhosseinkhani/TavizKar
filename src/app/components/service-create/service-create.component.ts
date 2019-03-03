@@ -34,21 +34,27 @@ export class ServiceCreateComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.carInfoService.getMakes().subscribe(res => {
-      this.isLoading = false;
-      this.toastr.infoToastr("آماده سازی انجام شد", "آماده", {
-        toastTimeout: 999
+    if (window.localStorage.getItem("oils")) {
+      this.carMakes = JSON.parse(window.localStorage.getItem("oils"));
+    } else {
+      this.carInfoService.getMakes().subscribe(res => {
+        this.isLoading = false;
+        this.toastr.infoToastr("آماده سازی انجام شد", "آماده", {
+          toastTimeout: 999
+        });
+        this.carMakes = res.map(
+          m =>
+            <DictionaryItem>{
+              code: m.make_id,
+              name: m.make_display
+            }
+        );
+        // add here default value for oil
+        // add to localstorage
+        window.localStorage.setItem("oils", JSON.stringify(this.carMakes));
       });
-      this.carMakes = res.map(
-        m =>
-          <DictionaryItem>{
-            code: m.make_id,
-            name: m.make_display
-          }
-      );
-      // add here default value for oil
-    });
-    this.formService.NextKm = 5000;
+    }
+    this.formService.NextKm = 5;
   }
 
   submit() {
@@ -71,10 +77,11 @@ export class ServiceCreateComponent implements OnInit {
       return;
     }
     if (!this.formService.OilName) {
-      this.toastr.warningToastr("روغن را انتخاب نمایید", "هشدار", {
-        toastTimeout: 999
-      });
-      return;
+      // this.toastr.warningToastr("روغن را انتخاب نمایید", "هشدار", {
+      //   toastTimeout: 999
+      // });
+      // return;
+      this.formService.OilName = this.carMakes[0];
     }
     const item: any = this.selectedFilter;
     item.Car = {
@@ -82,6 +89,9 @@ export class ServiceCreateComponent implements OnInit {
       UserFullName: this.formService.Car.UserFullName
     };
     item.Km = this.formService.Km;
+    if (item.NextKm < 100) {
+      item.NextKm = item.NextKm * 1000;
+    }
     item.NextKm =
       Number.parseInt(this.formService.Km, 10) +
       Number.parseInt(this.formService.NextKm, 10);
