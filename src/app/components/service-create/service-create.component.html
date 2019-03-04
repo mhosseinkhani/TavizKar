@@ -12,23 +12,23 @@
     <form class="ui form">
       <div class="input-box">
         <div class="ui icon input field ">
-          <input type="number" placeholder="شماره موبایل مشتری" [(ngModel)]="formService.Car.UserMobile" [ngModelOptions]="{standalone: true}">
+          <input type="text" class="mask phone" mask='0 0 0 0  0 0 0  0 0 0 0' [showMaskTyped] = "true" (focusout)="onLeaveMobile()"  placeholder="شماره موبایل مشتری" [(ngModel)]="formService.Car.UserMobile" [ngModelOptions]="{standalone: true}">
           <i class="far fa-mobile"></i>
         </div>
         <div class="ui icon input field">
-          <input type="text" placeholder="نام مشتری" [(ngModel)]="formService.Car.UserFullName" [ngModelOptions]="{standalone: true}">
+          <input type="text"   maxlength="40" placeholder="نام مشتری" [(ngModel)]="formService.Car.UserFullName" [ngModelOptions]="{standalone: true}">
           <i class="far fa-user "></i>
         </div>
         <div class="ui icon input field eight wide">
-          <input type="number"   placeholder="کیلومتر فعلی" [(ngModel)]="formService.Km" [ngModelOptions]="{standalone: true}">
+          <input type="text"  class="mask phone" mask='000000' [showMaskTyped] = "true"   placeholder="کیلومتر فعلی" [(ngModel)]="formService.Km" [ngModelOptions]="{standalone: true}">
           <i class="far fa-tachometer-alt "></i>
         </div>
         <div class="ui icon input field eight wide">
-          <input type="number" placeholder="کارکرد روغن" [(ngModel)]="formService.NextKm" [ngModelOptions]="{standalone: true}">
+          <input  type="text" class="mask phone"  mask='00' [showMaskTyped] = "true"   placeholder="کارکرد روغن" [(ngModel)]="formService.NextKm" [ngModelOptions]="{standalone: true}">
           <i class="far fa-road"></i>
         </div>
         <sui-select class="selection field" [(ngModel)]="formService.OilName" [ngModelOptions]="{standalone: true}"
-          [options]="carMakes" labelField="name" placeholder="نوع روغن" [isSearchable]="true" #carModelSelect>
+          [options]="carMakes" labelField="name" placeholder="نوع روغن" [isSearchable]="false" #carModelSelect>
           <sui-select-option *ngFor="let option of carModelSelect.filteredOptions" [value]="option"></sui-select-option>
         </sui-select>
       </div>

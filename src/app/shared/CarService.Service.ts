@@ -6,6 +6,7 @@ import { Injectable } from "@angular/core";
 
 @Injectable()
 export class CarServiceService {
+ 
   constructor(private http: HttpClient) {}
 
   getAll(page = 0): Observable<any> {
@@ -16,6 +17,10 @@ export class CarServiceService {
 
   addService(item): Observable<any> {
     return this.http.post(environment.main_api_url + "/Services", item);
+  } 
+  
+  getClientInfo(UserMobile: any): Observable<any> {
+    return this.http.get(environment.main_api_url + "/service/getClient?number="+UserMobile,);
   }
 }
 

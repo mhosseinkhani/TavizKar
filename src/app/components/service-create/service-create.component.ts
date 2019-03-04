@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, AfterViewInit } from "@angular/core";
 import { CarInfoService } from "../../shared/car-info.service";
 import { DictionaryItem } from "../../shared/model/DictionaryItem";
 import { CarServiceService } from "src/app/shared/CarService.Service";
@@ -10,6 +10,7 @@ import { ToastrManager } from "ng6-toastr-notifications";
   styleUrls: ["./service-create.component.css"]
 })
 export class ServiceCreateComponent implements OnInit {
+
   carMakes: DictionaryItem[];
   isLoading = true;
   public oilMark: any;
@@ -31,11 +32,12 @@ export class ServiceCreateComponent implements OnInit {
     private carInfoService: CarInfoService,
     private servie: CarServiceService,
     public toastr: ToastrManager
-  ) {}
+  ) { }
 
   ngOnInit() {
     if (window.localStorage.getItem("oils")) {
       this.carMakes = JSON.parse(window.localStorage.getItem("oils"));
+      this.isLoading = false;
     } else {
       this.carInfoService.getMakes().subscribe(res => {
         this.isLoading = false;
@@ -52,6 +54,8 @@ export class ServiceCreateComponent implements OnInit {
         // add here default value for oil
         // add to localstorage
         window.localStorage.setItem("oils", JSON.stringify(this.carMakes));
+      }, error => {
+        this.isLoading = false;
       });
     }
     this.formService.NextKm = 5;
@@ -60,19 +64,25 @@ export class ServiceCreateComponent implements OnInit {
   submit() {
     if (!this.formService.Km) {
       this.toastr.warningToastr("کارکرد فعلی را وارد نمایید", "هشدار", {
-        toastTimeout: 999
+        toastTimeout: 2000
       });
       return;
     }
     if (!this.formService.Car.UserFullName) {
       this.toastr.warningToastr("نام مشتری را وارد نمایید", "هشدار", {
-        toastTimeout: 999
+        toastTimeout: 2000
       });
       return;
     }
     if (!this.formService.Car.UserMobile) {
       this.toastr.warningToastr("شماره مشتری را وارد نمایید", "هشدار", {
-        toastTimeout: 999
+        toastTimeout: 2000
+      });
+      return;
+    }
+    if (this.formService.Car.UserMobile.length != 11) {
+      this.toastr.warningToastr("شماره مشتری صحیح نمی باشد.", "هشدار", {
+        toastTimeout: 2000
       });
       return;
     }
@@ -100,12 +110,13 @@ export class ServiceCreateComponent implements OnInit {
     this.isLoading = true;
     this.servie.addService(item).subscribe(
       res => {
+        this.isSendedNumber = false;
         this.toastr.successToastr("سرویس مشتری ثبت گردید", "ثبت");
         this.isLoading = false;
         this.formService = {
           Car: {}
         };
-        this.selectedFilter={
+        this.selectedFilter = {
           OilFilter: false,
           AirFilter: false,
           GearboxOil: false,
@@ -120,7 +131,32 @@ export class ServiceCreateComponent implements OnInit {
       error => {
         this.toastr.errorToastr("متاسفانه خطایی رخ داده است", "خطا");
         this.isLoading = false;
+
       }
     );
+  }
+
+  isSendedNumber = false;
+  onLeaveMobile() {
+    this.isSendedNumber = true;
+    this.servie.getClientInfo(this.formService.Car.UserMobile).subscribe(res => {
+
+      if (!this.formService.Car.UserFullName) {
+        this.formService.Car.UserFullName = res.FullName;
+      }
+      if (!this.formService.Km) {
+        this.formService.Km = res.Km;
+      }
+      if (this.formService.NextKm === 5) {
+        this.formService.NextKm = res.NextKm > 1000 ? res.NextKm / 1000 : res.NextKm;
+      }
+      if(!this.formService.Car.OilName){
+        var oil=this.carMakes.find(a=>a.name===res.OilName);
+        this.formService.Car.OilName=oil;
+      }
+      this.isSendedNumber = false;
+    }, error => {
+      this.isSendedNumber = false;
+    });
   }
 }

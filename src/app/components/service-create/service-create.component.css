@@ -96,3 +96,12 @@ sui-select.selection.field.ui.dropdown.search {
   top: 6px;
 
 }
+
+input.mask.phone {
+  text-align: left;
+  direction: ltr;
+}
+
+sui-select.selection.field.ui.dropdown {
+  width: 100%;
+}

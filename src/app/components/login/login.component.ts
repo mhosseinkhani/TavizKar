@@ -15,21 +15,15 @@ export class LoginComponent implements OnInit {
   constructor(
     private http: HttpClient,
     public toastr: ToastrManager,
-    private router: Router
-    , private userService: UserService
+    private router: Router,
+    private userService: UserService
   ) { }
 
   public mobile: any;
   public activeCode: any;
   activeMode = false;
   timer: any = [2, 59];
-<<<<<<< HEAD
   ngOnInit() { }
-=======
-  ngOnInit() {
-
-  }
->>>>>>> 6d9706c64ed7d741440b88228d0000579d3cd247
 
   doLogin() {
     if (!this.activeMode) {
@@ -73,8 +67,8 @@ export class LoginComponent implements OnInit {
           // }, error => {
           //   this.router.navigate(["/"]);
           // }); 
-           this.router.navigate(["/"]);
-        })          
+          this.router.navigate(["/"]);
+        })
 
         .catch(error => {
           this.toastr.errorToastr(" کد ارسالی صحیح نیست ", "خطا");
