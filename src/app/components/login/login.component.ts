@@ -23,7 +23,13 @@ export class LoginComponent implements OnInit {
   public activeCode: any;
   activeMode = false;
   timer: any = [2, 59];
+<<<<<<< HEAD
   ngOnInit() { }
+=======
+  ngOnInit() {
+
+  }
+>>>>>>> 6d9706c64ed7d741440b88228d0000579d3cd247
 
   doLogin() {
     if (!this.activeMode) {
@@ -84,7 +90,7 @@ export class LoginComponent implements OnInit {
       })
       .toPromise()
       .then(res => {
-        this.timer = [1, 60];
+        this.timer = [1, 59];
         this.timerStart();
         this.toastr.successToastr(
           "کد ورود به برنامه برای شما ارسال گردید.",

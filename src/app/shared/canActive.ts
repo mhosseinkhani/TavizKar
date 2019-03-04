@@ -10,7 +10,7 @@ import { environment } from "src/environments/environment";
 
 @Injectable({ providedIn: "root" })
 export class AuthGuard implements CanActivate {
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -18,8 +18,10 @@ export class AuthGuard implements CanActivate {
   ): Promise<boolean> {
     return this.checkLogin()
       .then((res:any) => {
-        if (res == false)
+
+        if (res == false) {
           window.location.href = "/login";
+        }
         return true;
       })
       .catch(error => {
@@ -30,19 +32,9 @@ export class AuthGuard implements CanActivate {
       });
   }
 
-  checkLogin(): Promise<boolean> {
+  checkLogin(): Promise<any> {
     return this.http
       .get(environment.main_api_url + "/Account/CheckLogin")
-      .toPromise()
-      .then(res => {
-        if (res == false)
-          window.location.href = "/login";
-        return true;
-      })
-      .catch(error => {
-        // this.router.navigate(['/login']);
-        window.location.href = "/login";
-        return false;
-      });
+      .toPromise();
   }
 }
