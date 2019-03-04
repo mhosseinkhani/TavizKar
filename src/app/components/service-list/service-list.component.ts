@@ -48,7 +48,7 @@ export class ServiceListComponent implements OnInit {
           } else {
             item.serviced = serviced;
           }
-          item.title = item.Car.UserMobile ? item.Car.UserMobile : '' + (item.Car.UserFullName ? ' - ' + item.Car.UserFullName : '');
+          item.title = (item.Car.UserMobile ? item.Car.UserMobile : '') + (item.Car.UserFullName ? ' - ' + item.Car.UserFullName : '');
           if (item.title.length == 0) item.title = 'ناشناس';
           this.data.push(item);
         }

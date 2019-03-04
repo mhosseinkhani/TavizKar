@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { CarInfoService } from "../../shared/car-info.service";
 import { AppComponent } from "../../app.component";
+import { UserService } from "src/app/shared/User.Service";
 
 @Component({
   selector: "app-home",
@@ -8,8 +9,8 @@ import { AppComponent } from "../../app.component";
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-  constructor(private servie: CarInfoService) {
- 
+  constructor(private servie: CarInfoService, private userService: UserService) {
+
     const user: any = JSON.parse(window.localStorage.getItem("userInfo"));
     this.userInfo = user;
   }
@@ -17,6 +18,10 @@ export class HomeComponent implements OnInit {
   public Adses: any = [];
   ngOnInit() {
     //this.getAds();
+    this.userService.getUserSummery().subscribe(res => {
+      window.localStorage.setItem("userInfo", JSON.stringify(res.result));
+      this.userInfo = res.result;
+    });
   }
 
   getAds() {

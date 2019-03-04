@@ -91,6 +91,20 @@ export class ServiceCreateComponent implements OnInit {
       res => {
         this.toastr.successToastr("سرویس مشتری ثبت گردید", "ثبت");
         this.isLoading = false;
+        this.formService = {
+          Car: {}
+        };
+        this.selectedFilter={
+          OilFilter: false,
+          AirFilter: false,
+          GearboxOil: false,
+          BreakOil: false,
+          SteeringOil: false,
+          BattryWater: false,
+          Grease: false,
+          WindSet: false,
+          CabinFilter: false
+        };
       },
       error => {
         this.toastr.errorToastr("متاسفانه خطایی رخ داده است", "خطا");

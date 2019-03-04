@@ -99,7 +99,7 @@ h4 {
   padding: 4px 0px 5px 0px;
   float: left;
   margin: 1px 0;
-  min-width: 245px;
+  min-width: 85%;
 }
 
 .inbox-nest a.ui.label.servie b {

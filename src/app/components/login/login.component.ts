@@ -3,6 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { ToastrManager } from "ng6-toastr-notifications";
 import { Router } from "@angular/router";
+import { UserService } from "src/app/shared/User.Service";
 
 @Component({
   selector: "app-login",
@@ -15,13 +16,14 @@ export class LoginComponent implements OnInit {
     private http: HttpClient,
     public toastr: ToastrManager,
     private router: Router
-  ) {}
+    , private userService: UserService
+  ) { }
 
   public mobile: any;
   public activeCode: any;
   activeMode = false;
   timer: any = [2, 59];
-  ngOnInit() {}
+  ngOnInit() { }
 
   doLogin() {
     if (!this.activeMode) {
@@ -32,6 +34,9 @@ export class LoginComponent implements OnInit {
         })
         .toPromise()
         .then(res => {
+
+
+
           this.timer = [1, 60];
           this.timerStart();
           this.toastr.successToastr(
@@ -47,17 +52,24 @@ export class LoginComponent implements OnInit {
       this.http
         .post(
           environment.main_api_url +
-            "/Account/Activation?phoneNumber=0" +
-            this.mobile +
-            "&code=" +
-            this.activeCode,
+          "/Account/Activation?phoneNumber=0" +
+          this.mobile +
+          "&code=" +
+          this.activeCode,
           null
         )
         .toPromise()
-        .then((res:any) => {
+        .then((res: any) => {
           window.localStorage.setItem("token", res.access_token.toString());
-          this.router.navigate(["/"]);
-        })
+          // this.userService.getUserSummery().subscribe(res => {
+          //   window.localStorage.setItem("userInfo", JSON.stringify(res.result));
+          //   this.router.navigate(["/"]);
+          // }, error => {
+          //   this.router.navigate(["/"]);
+          // }); 
+           this.router.navigate(["/"]);
+        })          
+
         .catch(error => {
           this.toastr.errorToastr(" کد ارسالی صحیح نیست ", "خطا");
         });

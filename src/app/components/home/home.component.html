@@ -5,9 +5,9 @@
     <div class="rela-block user-desc" id="user_description">{{userInfo.Description}}</div>
   </div>
   <div class="rela-block profile-card-stats">
-    <div class="floated profile-stat works" id="num_works">{{userInfo.ServiceQty |number:0}} <br>
+    <div class="floated profile-stat works" id="num_works">{{userInfo.TodayServiceQty |number:0}} <br>
     </div>
-    <div class="floated profile-stat followers" id="num_followers">{{userInfo.TodayServiceQty |number:0}}
+    <div class="floated profile-stat followers" id="num_followers">{{userInfo.ServiceQty |number:0}}
       <br>
     </div>
     <div class="floated profile-stat following" id="num_following">{{userInfo.ClientQty |number:0}}
