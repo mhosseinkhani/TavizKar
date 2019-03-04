@@ -32,7 +32,7 @@ import { AuthGuard } from "./shared/canActive";
 import { UserService } from "./shared/User.Service";
 import { ChangeInfoComponent } from "./components/changeInfo/changeInfo.component";
 import { LocationStrategy, HashLocationStrategy } from "@angular/common";
-import {NgxMaskModule} from 'ngx-mask'
+import {NgxMaskModule} from 'ngx-mask';
 
 @NgModule({
   declarations: [

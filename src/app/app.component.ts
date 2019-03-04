@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { SwUpdate } from "@angular/service-worker";
 import { slideInAnimation } from "./shared/animations";
-import { RouterOutlet } from "@angular/router";
+import { RouterOutlet, Router } from "@angular/router";
 import { UserService } from "./shared/User.Service";
 
 @Component({
@@ -11,15 +11,22 @@ import { UserService } from "./shared/User.Service";
   animations: [slideInAnimation]
 })
 export class AppComponent implements OnInit {
-  constructor(private swUpdate: SwUpdate, private userService: UserService) {
-    window.localStorage.setItem("userInfo", JSON.stringify({
-      Description: "",
-      FullName: "",
-      TodayServiceQty: 0,
-      ClientQty: 0,
-      ServiceQty: 0,
-      Avatar: "../../../assets/icons/icon-128x128 - Copy.png"
-    }));
+  constructor(
+    private swUpdate: SwUpdate,
+    private userService: UserService,
+    private router: Router
+  ) {
+    window.localStorage.setItem(
+      "userInfo",
+      JSON.stringify({
+        Description: "",
+        FullName: "",
+        TodayServiceQty: 0,
+        ClientQty: 0,
+        ServiceQty: 0,
+        Avatar: "../../../assets/icons/icon-128x128 - Copy.png"
+      })
+    );
     this.getInfo();
   }
   // public static userInfo = {
@@ -31,9 +38,16 @@ export class AppComponent implements OnInit {
   //   Avatar: "../../../assets/icons/icon-128x128 - Copy.png"
   // };
   private getInfo() {
-    this.userService.getUserSummery().subscribe(res => {
-      window.localStorage.setItem("userInfo", JSON.stringify(res.result));
-    });
+    this.userService.getUserSummery().subscribe(
+      res => {
+        window.localStorage.setItem("userInfo", JSON.stringify(res.result));
+      },
+      error => {
+        if (error.status === 401) {
+          this.router.navigate(["/login"]);
+        }
+      }
+    );
   }
 
   ngOnInit() {

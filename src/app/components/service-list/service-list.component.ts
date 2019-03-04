@@ -1,5 +1,6 @@
 import { CarServiceService } from "./../../shared/CarService.Service";
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-claim-list",
@@ -7,7 +8,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./service-list.component.css"]
 })
 export class ServiceListComponent implements OnInit {
-  constructor(private service: CarServiceService) { }
+  constructor(private service: CarServiceService, private router: Router) { }
   private page = 0;
   public data: any[] = [];
   public isLoading = true;
@@ -53,6 +54,11 @@ export class ServiceListComponent implements OnInit {
           this.data.push(item);
         }
       );
+    },
+    error => {
+      if (error.status === 401) {
+        this.router.navigate(["/login"]);
+      }
     });
   }
 

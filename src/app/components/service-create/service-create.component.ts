@@ -3,6 +3,7 @@ import { CarInfoService } from "../../shared/car-info.service";
 import { DictionaryItem } from "../../shared/model/DictionaryItem";
 import { CarServiceService } from "src/app/shared/CarService.Service";
 import { ToastrManager } from "ng6-toastr-notifications";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-service-create",
@@ -10,7 +11,6 @@ import { ToastrManager } from "ng6-toastr-notifications";
   styleUrls: ["./service-create.component.css"]
 })
 export class ServiceCreateComponent implements OnInit {
-
   carMakes: DictionaryItem[];
   isLoading = true;
   public oilMark: any;
@@ -31,32 +31,39 @@ export class ServiceCreateComponent implements OnInit {
   constructor(
     private carInfoService: CarInfoService,
     private servie: CarServiceService,
-    public toastr: ToastrManager
-  ) { }
+    public toastr: ToastrManager,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     if (window.localStorage.getItem("oils")) {
       this.carMakes = JSON.parse(window.localStorage.getItem("oils"));
       this.isLoading = false;
     } else {
-      this.carInfoService.getMakes().subscribe(res => {
-        this.isLoading = false;
-        this.toastr.infoToastr("آماده سازی انجام شد", "آماده", {
-          toastTimeout: 999
-        });
-        this.carMakes = res.map(
-          m =>
-            <DictionaryItem>{
-              code: m.make_id,
-              name: m.make_display
-            }
-        );
-        // add here default value for oil
-        // add to localstorage
-        window.localStorage.setItem("oils", JSON.stringify(this.carMakes));
-      }, error => {
-        this.isLoading = false;
-      });
+      this.carInfoService.getMakes().subscribe(
+        res => {
+          this.isLoading = false;
+          this.toastr.infoToastr("آماده سازی انجام شد", "آماده", {
+            toastTimeout: 999
+          });
+          this.carMakes = res.map(
+            m =>
+              <DictionaryItem>{
+                code: m.make_id,
+                name: m.make_display
+              }
+          );
+          // add here default value for oil
+          // add to localstorage
+          window.localStorage.setItem("oils", JSON.stringify(this.carMakes));
+        },
+        error => {
+          this.isLoading = false;
+          if (error.status === 401) {
+            this.router.navigate(["/login"]);
+          }
+        }
+      );
     }
     this.formService.NextKm = 5;
   }
@@ -132,6 +139,9 @@ export class ServiceCreateComponent implements OnInit {
         this.toastr.errorToastr("متاسفانه خطایی رخ داده است", "خطا");
         this.isLoading = false;
 
+        if (error.status === 401) {
+          this.router.navigate(["/login"]);
+        }
       }
     );
   }
@@ -139,24 +149,31 @@ export class ServiceCreateComponent implements OnInit {
   isSendedNumber = false;
   onLeaveMobile() {
     this.isSendedNumber = true;
-    this.servie.getClientInfo(this.formService.Car.UserMobile).subscribe(res => {
+    this.servie.getClientInfo(this.formService.Car.UserMobile).subscribe(
+      res => {
+        if (!this.formService.Car.UserFullName) {
+          this.formService.Car.UserFullName = res.FullName;
+        }
+        if (!this.formService.Km) {
+          this.formService.Km = res.Km;
+        }
+        if (this.formService.NextKm === 5) {
+          this.formService.NextKm =
+            res.NextKm > 1000 ? res.NextKm / 1000 : res.NextKm;
+        }
+        if (!this.formService.Car.OilName) {
+          const oil = this.carMakes.find(a => a.name === res.OilName);
+          this.formService.Car.OilName = oil;
+        }
+        this.isSendedNumber = false;
+      },
+      error => {
+        this.isSendedNumber = false;
 
-      if (!this.formService.Car.UserFullName) {
-        this.formService.Car.UserFullName = res.FullName;
+        if (error.status === 401) {
+          this.router.navigate(["/login"]);
+        }
       }
-      if (!this.formService.Km) {
-        this.formService.Km = res.Km;
-      }
-      if (this.formService.NextKm === 5) {
-        this.formService.NextKm = res.NextKm > 1000 ? res.NextKm / 1000 : res.NextKm;
-      }
-      if(!this.formService.Car.OilName){
-        var oil=this.carMakes.find(a=>a.name===res.OilName);
-        this.formService.Car.OilName=oil;
-      }
-      this.isSendedNumber = false;
-    }, error => {
-      this.isSendedNumber = false;
-    });
+    );
   }
 }
