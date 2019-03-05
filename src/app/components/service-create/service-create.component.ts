@@ -33,7 +33,7 @@ export class ServiceCreateComponent implements OnInit {
     private servie: CarServiceService,
     public toastr: ToastrManager,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     if (window.localStorage.getItem("oils")) {
@@ -148,7 +148,14 @@ export class ServiceCreateComponent implements OnInit {
 
   isSendedNumber = false;
   onLeaveMobile() {
-    this.isSendedNumber = true;
+    const mobile = this.formService.Car.UserMobile;
+    if (mobile.length != 11) {
+      this.toastr.warningToastr("شماره مشتری صحیح نمی باشد.", "هشدار", {
+        toastTimeout: 2000
+      });
+      return;
+    }
+    this.isSendedNumber = true;    
     this.servie.getClientInfo(this.formService.Car.UserMobile).subscribe(
       res => {
         if (!this.formService.Car.UserFullName) {
