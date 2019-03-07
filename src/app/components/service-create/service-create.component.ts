@@ -17,6 +17,7 @@ export class ServiceCreateComponent implements OnInit {
   public formService: any = {
     Car: {}
   };
+  isSendedNumber = false;
   public selectedFilter = {
     OilFilter: false,
     AirFilter: false,
@@ -33,7 +34,7 @@ export class ServiceCreateComponent implements OnInit {
     private servie: CarServiceService,
     public toastr: ToastrManager,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     if (window.localStorage.getItem("oils")) {
@@ -146,7 +147,6 @@ export class ServiceCreateComponent implements OnInit {
     );
   }
 
-  isSendedNumber = false;
   onLeaveMobile() {
     const mobile = this.formService.Car.UserMobile;
     if (mobile.length != 11) {
@@ -155,7 +155,7 @@ export class ServiceCreateComponent implements OnInit {
       });
       return;
     }
-    this.isSendedNumber = true;    
+    this.isSendedNumber = true;
     this.servie.getClientInfo(this.formService.Car.UserMobile).subscribe(
       res => {
         if (!this.formService.Car.UserFullName) {
