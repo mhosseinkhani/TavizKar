@@ -12,7 +12,7 @@
     <form class="ui form">
       <div class="input-box">
         <div class="ui icon input field ">
-          <input type="text" class="mask phone" (focusout)="onLeaveMobile()" placeholder="شماره موبایل مشتری"
+          <input type=" number" class="mask phone" (focusout)="onLeaveMobile()" placeholder="شماره موبایل مشتری"
             [(ngModel)]="formService.Car.UserMobile" [ngModelOptions]="{standalone: true}">
           <!-- mask='0 0 0 0  0 0 0  0 0 0 0' [showMaskTyped] = "true"  -->
           <i class="far fa-mobile"></i>
@@ -23,12 +23,12 @@
           <i class="far fa-user "></i>
         </div>
         <div class="ui icon input field eight wide">
-          <input type="text" class="mask phone" mask='000000' [showMaskTyped]="true" placeholder="کیلومتر فعلی"
+          <input type="number" class="mask phone"     placeholder="کیلومتر فعلی"
             [(ngModel)]="formService.Km" [ngModelOptions]="{standalone: true}">
           <i class="far fa-tachometer-alt "></i>
         </div>
         <div class="ui icon input field eight wide">
-          <input type="text" class="mask phone" mask='00' [showMaskTyped]="true" placeholder="کارکرد روغن"
+          <input type="number" class="mask phone"   placeholder="کارکرد روغن"
             [(ngModel)]="formService.NextKm" [ngModelOptions]="{standalone: true}">
           <i class="far fa-road"></i>
         </div>
