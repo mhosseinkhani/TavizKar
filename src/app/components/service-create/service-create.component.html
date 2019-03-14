@@ -24,15 +24,15 @@
           <i class="far fa-user "></i>
         </div>
         <div class="ui icon input field eight wide">
-          <input type="text" class="mask phone"  placeholder="کیلومتر فعلی"
-            [(ngModel)]="formService.Km" [ngModelOptions]="{standalone: true}">
-            <!-- mask='000000' [showMaskTyped]="true" -->
+          <input type="text" class="mask phone" placeholder="کیلومتر فعلی" [(ngModel)]="formService.Km"
+            [ngModelOptions]="{standalone: true}">
+          <!-- mask='000000' [showMaskTyped]="true" -->
           <i class="far fa-tachometer-alt "></i>
         </div>
         <div class="ui icon input field eight wide">
-          <input type="text" class="mask phone" placeholder="کارکرد روغن"
-            [(ngModel)]="formService.NextKm" [ngModelOptions]="{standalone: true}" maxlength="2">
-            <!-- mask='00' [showMaskTyped]="true" -->
+          <input type="text" class="mask phone" placeholder="کارکرد روغن" [(ngModel)]="formService.NextKm"
+            [ngModelOptions]="{standalone: true}" maxlength="2">
+          <!-- mask='00' [showMaskTyped]="true" -->
           <i class="far fa-road"></i>
         </div>
         <sui-select class="selection field" [(ngModel)]="formService.OilName" [ngModelOptions]="{standalone: true}"
@@ -76,6 +76,10 @@
           [ngClass]="{'dark' :!selectedFilter.CabinFilter}"><i class="far fa-check"
             *ngIf="selectedFilter.CabinFilter"></i>فیلتر
           کابین</div>
+        <!-- <div class="pink five wide column" (click)="selectedFilter.CabinFilter=!selectedFilter.CabinFilter"
+          [ngClass]="{'dark' :!selectedFilter.CabinFilter}"><i class="far fa-check"
+            *ngIf="selectedFilter.CabinFilter"></i>فیلتر
+          کابین</div> -->
       </div>
       <div class="text-center">
         <button class="ui labeled green big icon button field" [ngClass]="{'loading': isLoading}" (click)="submit()">
