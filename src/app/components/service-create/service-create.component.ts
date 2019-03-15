@@ -27,14 +27,15 @@ export class ServiceCreateComponent implements OnInit {
     BattryWater: false,
     Grease: false,
     WindSet: false,
-    CabinFilter: false
+    CabinFilter: false,
+    TimingBelt:false
   };
   constructor(
     private carInfoService: CarInfoService,
     private servie: CarServiceService,
     public toastr: ToastrManager,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     if (window.localStorage.getItem("oils")) {
@@ -134,7 +135,8 @@ export class ServiceCreateComponent implements OnInit {
           BattryWater: false,
           Grease: false,
           WindSet: false,
-          CabinFilter: false
+          CabinFilter: false,
+          TimingBelt: false
         };
       },
       error => {

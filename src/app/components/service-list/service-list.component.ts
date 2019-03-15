@@ -36,7 +36,8 @@ export class ServiceListComponent implements OnInit {
                 "Grease",
                 "OilFilter",
                 "SteeringOil",
-                "WindSet"
+                "WindSet",
+                "TimingBelt"
               ].some(x => x === a)
             ) {
               if (item[a] === 1) {
@@ -90,6 +91,8 @@ export class ServiceListComponent implements OnInit {
         return "روغن هیدرولیک";
       case "WindSet":
         return "تنظیم باد";
+      case "TimingBelt":
+        return "تسمه تایم";
     }
   }
 }

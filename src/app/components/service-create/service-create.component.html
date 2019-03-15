@@ -76,10 +76,9 @@
           [ngClass]="{'dark' :!selectedFilter.CabinFilter}"><i class="far fa-check"
             *ngIf="selectedFilter.CabinFilter"></i>فیلتر
           کابین</div>
-        <!-- <div class="pink five wide column" (click)="selectedFilter.CabinFilter=!selectedFilter.CabinFilter"
-          [ngClass]="{'dark' :!selectedFilter.CabinFilter}"><i class="far fa-check"
-            *ngIf="selectedFilter.CabinFilter"></i>فیلتر
-          کابین</div> -->
+        <div class="pink five wide column" (click)="selectedFilter.TimingBelt=!selectedFilter.TimingBelt"
+          [ngClass]="{'dark' :!selectedFilter.TimingBelt}"><i class="far fa-check"
+            *ngIf="selectedFilter.TimingBelt"></i>تسمه تایم</div>
       </div>
       <div class="text-center">
         <button class="ui labeled green big icon button field" [ngClass]="{'loading': isLoading}" (click)="submit()">
