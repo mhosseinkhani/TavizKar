@@ -108,12 +108,12 @@ export class ServiceCreateComponent implements OnInit {
     };
     item.Km = this.formService.Km;
     item.NextKm = Number.parseInt(this.formService.NextKm, 10);
-    if (item.NextKm < 100) {
-      item.NextKm = item.NextKm * 1000;
-    }
-    item.NextKm =
-      Number.parseInt(this.formService.Km, 10) +
-      item.NextKm;
+    // if (item.NextKm < 100) {
+    //   item.NextKm = item.NextKm * 1000;
+    // }
+    // item.NextKm =
+    //   Number.parseInt(this.formService.Km, 10) +
+    //   item.NextKm;
     item.OilName = this.formService.OilName.name;
     item.OilType = this.formService.OilName.code;
     this.isLoading = true;
