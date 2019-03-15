@@ -21,7 +21,7 @@ export class CarListComponent implements OnInit {
     this.service.getClients(this.page).subscribe(
       response => {
         this.isLoading = false;
-        if (response.length == 0) this.showLoadMore = false;
+        if (response.length == 0) { this.showLoadMore = false; }
         response.forEach(
           (item): any => {
             this.data.push(item);
