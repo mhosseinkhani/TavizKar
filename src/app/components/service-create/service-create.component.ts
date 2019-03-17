@@ -139,7 +139,6 @@ export class ServiceCreateComponent implements OnInit {
           TimingBelt: false
         };
         this.formService.NextKm = 5;
-
       },
       error => {
         this.toastr.errorToastr("متاسفانه خطایی رخ داده است", "خطا");
