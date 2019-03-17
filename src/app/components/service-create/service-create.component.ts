@@ -89,7 +89,7 @@ export class ServiceCreateComponent implements OnInit {
       });
       return;
     }
-    if (this.formService.Car.UserMobile.length != 11) {
+    if (this.formService.Car.UserMobile.length <= 11) {
       this.toastr.warningToastr("شماره مشتری صحیح نمی باشد.", "هشدار", {
         toastTimeout: 2000
       });
@@ -138,6 +138,8 @@ export class ServiceCreateComponent implements OnInit {
           CabinFilter: false,
           TimingBelt: false
         };
+        this.formService.NextKm = 5;
+
       },
       error => {
         this.toastr.errorToastr("متاسفانه خطایی رخ داده است", "خطا");
