@@ -1,6 +1,6 @@
 {
   "name": "carchar-app",
-  "version": "0.0.0",
+  "version": "0.1.7",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4207",
