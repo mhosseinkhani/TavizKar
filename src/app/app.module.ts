@@ -33,6 +33,7 @@ import { UserService } from "./shared/User.Service";
 import { ChangeInfoComponent } from "./components/changeInfo/changeInfo.component";
 import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 import {NgxMaskModule} from 'ngx-mask';
+import { TicketListComponent } from "./components/ticket-list/ticket-list.component";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {NgxMaskModule} from 'ngx-mask';
     HomeComponent,
     CarListComponent,
     LoginComponent,
-    ChangeInfoComponent
+    ChangeInfoComponent,
+    TicketListComponent
   ],
   imports: [
     BrowserModule,
