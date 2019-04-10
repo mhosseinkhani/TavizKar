@@ -1,0 +1,211 @@
+.claim-list {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.claim-row {
+  margin-bottom: 20px;
+}
+
+
+/*  inbox */
+
+
+.inbox-nest {
+  padding: 4px !important;
+}
+
+.inbox-nest ul {
+  margin: 0;
+  background: #ffffff;
+  padding: 10px 0;
+  border-radius: 0;
+  /*  border-left: 1px solid #D5DAE6; */
+}
+
+.inbox-nest ul li {
+  border-bottom: 1px solid #ddd;
+  margin: 0px 0 10px 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.inbox-nest ul li:last-child {
+  border-bottom: 0px solid #ddd;
+}
+
+.inbox-nest ul li b {
+  padding: 0 10px;
+  font-size: 14px;
+  color: #454545;
+}
+
+.inbox-nest ul li small {
+  font-size: 12px;
+  float: left;
+  color: #666;
+  padding: 0 5px;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+.inbox-nest ul li p {
+  display: inline-block;
+  padding: 5px 10px 0 45px;
+  width: 100%;
+  font-size: 13px !important;
+  color: #8c92a3;
+}
+
+.inbox-header {
+  display: inline-block;
+  width: 100%;
+  margin: -3px 0 3px 0;
+  text-align: left;
+}
+
+.inbox-header a.ui.tag.label {
+  font-size: smaller;
+  margin: 0 8px;
+}
+
+.inbox-nest ul li h5 {
+  display: inline-block;
+  padding: 0 0 0 45px;
+  width: 100%;
+  font-size: 13px !important;
+  margin: 0 0 3px;
+  color: #8c92a3;
+  font-weight: bold;
+}
+h4 {
+  padding: 0 !important;
+  margin: 0 !important;
+  font-family: inherit;
+}
+.inbox-nest ul li img {
+  float: right;
+  margin:14px 5px 0 0;
+  width: 65px;
+}
+
+.inbox-header a.ui.label {
+  padding: 4px 3px 6px 3px;
+}
+
+.inbox-nest a.ui.label.servie {
+  padding: 4px 0px 5px 0px;
+  float: left;
+  margin: 1px 0;
+  min-width: 245px;
+}
+
+.inbox-nest a.ui.label.servie b {
+  padding: 5px !important;
+}
+
+.star {
+  float: left;
+  margin: 0 5px 0 0;
+}
+
+span.prefix,
+label.prefix {
+  /* background: #f2f2f2; */
+  border-left: none;
+  /* color: #333333; */
+  border-color: #D5DAE6;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="color"],
+textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-family: inherit;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #D5DAE6;
+  box-shadow: none;
+  color: #D5DAE6;
+  display: block;
+  font-size: 12px;
+  margin: 0 0 1rem 0;
+  padding: 0.5rem;
+  height: 2.3125rem;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  transition: box-shadow 0.45s, border-color 0.45s ease-in-out;
+}
+
+.inbox-header h1 {
+  font-size: 24px;
+  font-weight: lighter;
+}
+
+.inbox-header h2 {
+  font-size: 30px;
+  font-weight: lighter;
+  color: #fff;
+}
+
+.inbox-header ul {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  margin: 0;
+  border-left: 0px solid #D5DAE6;
+}
+
+.inbox-header ul li {
+  background: #555;
+  margin: 10px 0;
+  display: inline-block;
+  padding: 0 15px 0 0px;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.inbox-header ul li:last-child {
+  background: #fff !important;
+}
+
+.inbox-header ul li a {
+  font-size: 11px;
+  color: rgba(98, 113, 155, 0.5);
+  top: 2px;
+  position: relative
+}
+
+.inbox-header ul li span {
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.28);
+  font-size: 12px;
+}
+
+.center {
+  text-align: center;
+}

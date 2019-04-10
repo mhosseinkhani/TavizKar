@@ -8,6 +8,7 @@ import { CarListComponent } from "./components/car-list/car-list.component";
 import { LoginComponent } from "./components/login/login.component";
 import { AuthGuard } from "./shared/canActive";
 import { ChangeInfoComponent } from "./components/changeInfo/changeInfo.component";
+import { TicketListComponent } from "./components/ticket-list/ticket-list.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent, canActivate: [AuthGuard] },
@@ -15,7 +16,9 @@ const appRoutes: Routes = [
   { path: "services", component: ServiceListComponent },
   { path: "clients", component: CarListComponent },
   { path: "login", component: LoginComponent },
-  { path: "updateInfo", component: ChangeInfoComponent , canActivate: [AuthGuard]}
+  { path: "updateInfo", component: ChangeInfoComponent , canActivate: [AuthGuard]},
+  { path: "ticket", component: TicketListComponent },
+
 ];
 
 @NgModule({
