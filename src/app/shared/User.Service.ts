@@ -8,4 +8,9 @@ export class UserService {
   getUserSummery(): Observable<any> {
     return this.http.get(environment.main_api_url + "/Account/UserSummery");
   }
+
+
+  addTicket(ticket):Observable<any>{
+    return this.http.post(environment.main_api_url+"/client/addTicket",ticket);
+  }
 }
