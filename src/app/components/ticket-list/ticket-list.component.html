@@ -1,32 +1,33 @@
-<div class="ui card claim-list">
-  <div class="content">
-    <b>سرویس های من</b>
+<div class="ui tag labels">
+  <a class="ui label teal">
+    درخواست پشتیبانی </a>
+</div>
+<div class="container box-service">
+  <div class="ui active dimmer" *ngIf="isLoading">
+    <div class="ui text loader">لطفا شکیبا باشید ...</div>
   </div>
-  <div class="content inbox-nest">
-    <ul>
-      <li *ngFor="let claim of data"> <img alt="" class="img-circle star" src="../../../assets/icons/icon-slider.png">
-        <h4>{{ claim.title}} </h4>
-        <a class="ui label servie"> <small> سرویس شده
-            <b><i class="clock outline icon"></i>{{ claim.CreatedOnFa }}</b>-<b><i class="icon-clock"></i> {{
-              claim.Km | number:0 }}</b>
-          </small></a>
-        <a class="ui label servie"> <small> سرویس بعد
-            <b><i class="clock outline icon"></i>{{ claim.NextServiceOnFa }}</b>-<b><i class="icon-clock"></i> {{
-              claim.NextKm | number:0 }}</b>
-          </small></a>
-        <!-- <p>
-          سرویس بعد در <b>{{ claim.NextServiceOnFa }}</b> یا <b>{{ claim.NextKm |
-            number:0 }}km</b>
-        </p> -->
-        <div class="inbox-header">
-          <a *ngFor="let item of claim.serviced" class="ui teal small label"> {{ item }}</a>
+  <div class="button-conent">
+    <form class="ui form">
+      <div class="input-box">
+        <div class="ui icon input field">
+          <input type="text" maxlength="40" placeholder="موضوع" [(ngModel)]="tick.Subject"
+            [ngModelOptions]="{standalone: true}">
+          <i class="far fa-user "></i>
         </div>
-      </li>
-    </ul>
-    <div *ngIf="!data || data.length === 0">
-      سرویسی ثبت نگردیده است. </div>
-    <div class="center" *ngIf="showLoadMore"> <button class="ui primary button" [ngClass]="{'loading': isLoading}"
-        (click)="loadMore()">دریافت بیشتر</button>
-    </div>
+
+        <div class="ui icon input field">
+          <textarea maxlength="4000" placeholder="متن" [(ngModel)]="tick.Passage"
+            [ngModelOptions]="{standalone: true}"></textarea>
+
+        </div>
+      </div>
+      <br>
+      <div class="text-center">
+        <button class="ui labeled green big icon button field" [ngClass]="{'loading': isLoading}" (click)="submit()">
+           ارسال </button></div>
+    </form>
   </div>
+
+
+
 </div>

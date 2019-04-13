@@ -1,3 +1,4 @@
+import { StringHelper } from "./../../shared/utility";
 import { Component, OnInit, AfterViewInit } from "@angular/core";
 import { CarInfoService } from "../../shared/car-info.service";
 import { DictionaryItem } from "../../shared/model/DictionaryItem";
@@ -28,14 +29,17 @@ export class ServiceCreateComponent implements OnInit {
     Grease: false,
     WindSet: false,
     CabinFilter: false,
-    TimingBelt:false
+    TimingBelt: false
   };
+  convertNumbers2English: StringHelper;
   constructor(
     private carInfoService: CarInfoService,
     private servie: CarServiceService,
     public toastr: ToastrManager,
     private router: Router
-  ) {}
+  ) {
+    this.convertNumbers2English = new StringHelper();
+  }
 
   ngOnInit() {
     if (window.localStorage.getItem("oils")) {
@@ -71,6 +75,17 @@ export class ServiceCreateComponent implements OnInit {
   }
 
   submit() {
+
+    this.formService.Car.UserMobile = this.convertNumbers2English.ConvertNumbers2English(
+      this.formService.Car.UserMobile + ""
+    );
+    this.formService.Km = this.convertNumbers2English.ConvertNumbers2English(
+      this.formService.Km + ""
+    );
+    this.formService.NextKm = this.convertNumbers2English.ConvertNumbers2English(
+      this.formService.NextKm + ""
+    );
+
     if (!this.formService.Km) {
       this.toastr.warningToastr("کارکرد فعلی را وارد نمایید", "هشدار", {
         toastTimeout: 2000
