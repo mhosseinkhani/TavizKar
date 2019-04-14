@@ -28,7 +28,7 @@
     {
       "name": "carchar-api",
       "urls": [
-        "http://localhost:61550/api/"
+        "http://api.carchar.ir/api/"
       ],
       "cacheConfig": {
         "strategy": "freshness",
