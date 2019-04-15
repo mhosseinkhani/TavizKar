@@ -25,13 +25,13 @@
         </div>
         <div class="ui icon input field eight wide">
           <input type="number" class="mask phone" placeholder="کیلومتر فعلی" [(ngModel)]="formService.Km"
-            [ngModelOptions]="{standalone: true}">
+            [ngModelOptions]="{standalone: true}" (blur)="onBlur( 'kilometer')">
           <!-- mask='000000' [showMaskTyped]="true" -->
           <i class="far fa-tachometer-alt "></i>
         </div>
         <div class="ui icon input field eight wide">
           <input type="number" class="mask phone" placeholder="کارکرد روغن" [(ngModel)]="formService.NextKm"
-            [ngModelOptions]="{standalone: true}" maxlength="2">
+            [ngModelOptions]="{standalone: true}" maxlength="2" (blur)="onBlur( 'nextKm')">
           <!-- mask='00' [showMaskTyped]="true" -->
           <i class="far fa-road"></i>
         </div>

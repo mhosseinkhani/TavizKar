@@ -75,7 +75,6 @@ export class ServiceCreateComponent implements OnInit {
   }
 
   submit() {
-
     this.formService.Car.UserMobile = this.convertNumbers2English.ConvertNumbers2English(
       this.formService.Car.UserMobile + ""
     );
@@ -92,6 +91,24 @@ export class ServiceCreateComponent implements OnInit {
       });
       return;
     }
+    if (this.formService.Km > 999999) {
+      this.toastr.warningToastr(
+        "کیلومتر فعلی نمیتواند بیشتر از 6 رقم باشد.",
+        "هشدار",
+        {
+          toastTimeout: 2000
+        }
+      );
+      return;
+
+    }
+    if (this.formService.NextKm > 99) {
+      this.toastr.warningToastr(" کیلومتر بر واحد هزار می باشد", "هشدار", {
+        toastTimeout: 2000
+      });
+      return;
+
+    }
     if (!this.formService.Car.UserFullName) {
       this.toastr.warningToastr("نام مشتری را وارد نمایید", "هشدار", {
         toastTimeout: 2000
@@ -104,7 +121,7 @@ export class ServiceCreateComponent implements OnInit {
       });
       return;
     }
-    if (this.formService.Car.UserMobile.length <= 11) {
+    if (this.formService.Car.UserMobile.length < 10) {
       this.toastr.warningToastr("شماره مشتری صحیح نمی باشد.", "هشدار", {
         toastTimeout: 2000
       });
@@ -183,10 +200,10 @@ export class ServiceCreateComponent implements OnInit {
         if (!this.formService.Km) {
           this.formService.Km = res.Km;
         }
-        if (this.formService.NextKm === 5) {
-          this.formService.NextKm =
-            res.NextKm > 1000 ? res.NextKm / 1000 : res.NextKm;
-        }
+        // if (this.formService.NextKm === 5) {
+        //   this.formService.NextKm =
+        //     res.NextKm > 1000 ? res.NextKm / 1000 : res.NextKm;
+        // }
         if (!this.formService.Car.OilName) {
           const oil = this.carMakes.find(a => a.name === res.OilName);
           this.formService.Car.OilName = oil;
@@ -201,5 +218,28 @@ export class ServiceCreateComponent implements OnInit {
         }
       }
     );
+  }
+  onBlur(item) {
+    switch (item) {
+      case "kilometer":
+        if (this.formService.Km > 999999) {
+          this.toastr.warningToastr(
+            "کیلومتر فعلی نمیتواند بیشتر از 6 رقم باشد.",
+            "هشدار",
+            {
+              toastTimeout: 3500
+            }
+          );
+        }
+        break;
+
+      case "nextKm":
+        if (this.formService.NextKm > 99) {
+          this.toastr.warningToastr(" کیلومتر بر واحد هزار می باشد", "هشدار", {
+            toastTimeout: 3500
+          });
+        }
+        break;
+    }
   }
 }
