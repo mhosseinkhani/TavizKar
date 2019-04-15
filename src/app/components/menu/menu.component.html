@@ -11,7 +11,9 @@
       <div class="menu">
         <a class="item" [routerLink]="['/updateInfo']">تنظیمات</a>
         <div class="divider"></div>
-        <a class="item" [routerLink]="['/ticket']">پشتیبانی</a>
+        <a class="item" *ngIf="isToken" [routerLink]="['/ticket']">پشتیبانی</a>
+        <div class="divider"></div>
+        <a class="item" *ngIf="isToken" (click)="callMe()">درخواست تماس</a>
       </div>
     </div>
   </div>
